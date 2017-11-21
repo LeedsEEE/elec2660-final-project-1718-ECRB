@@ -16,6 +16,8 @@
 		8C90232B1FC47DBF00466BEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */; };
 		8C9023361FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023351FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m */; };
 		8C9023411FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */; };
+		8C9023501FC480FF00466BEF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* SubjectData.m */; };
+		8C9023531FC4811A00466BEF /* EntryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* EntryData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		8C90233C1FC47DBF00466BEF /* The Growth Zone ModelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Growth Zone ModelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Growth_Zone_ModelUITests.m; sourceTree = "<group>"; };
 		8C9023421FC47DBF00466BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C90234E1FC480FF00466BEF /* SubjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectData.h; sourceTree = "<group>"; };
+		8C90234F1FC480FF00466BEF /* SubjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectData.m; sourceTree = "<group>"; };
+		8C9023511FC4811900466BEF /* EntryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryData.h; sourceTree = "<group>"; };
+		8C9023521FC4811A00466BEF /* EntryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,10 @@
 				8C9023211FC47DBF00466BEF /* DetailViewController.h */,
 				8C9023221FC47DBF00466BEF /* DetailViewController.m */,
 				8C9023241FC47DBF00466BEF /* Main.storyboard */,
+				8C90234E1FC480FF00466BEF /* SubjectData.h */,
+				8C90234F1FC480FF00466BEF /* SubjectData.m */,
+				8C9023511FC4811900466BEF /* EntryData.h */,
+				8C9023521FC4811A00466BEF /* EntryData.m */,
 				8C9023271FC47DBF00466BEF /* Assets.xcassets */,
 				8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */,
 				8C90232C1FC47DBF00466BEF /* Info.plist */,
@@ -278,8 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9023531FC4811A00466BEF /* EntryData.m in Sources */,
 				8C90231D1FC47DBF00466BEF /* AppDelegate.m in Sources */,
 				8C9023201FC47DBF00466BEF /* MasterViewController.m in Sources */,
+				8C9023501FC480FF00466BEF /* SubjectData.m in Sources */,
 				8C90231A1FC47DBF00466BEF /* main.m in Sources */,
 				8C9023231FC47DBF00466BEF /* DetailViewController.m in Sources */,
 			);
