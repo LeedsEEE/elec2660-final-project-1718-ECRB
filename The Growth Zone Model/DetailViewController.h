@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Subject.h"
 
 @interface DetailViewController : UIViewController
 
