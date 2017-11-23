@@ -6,7 +6,7 @@
 //  Copyright © 2017 Edward Baker [el16ecrb]. All rights reserved.
 //
 
-#import "EntryData.h"
+#import "Entry.h"
 
 @implementation EntryData
 

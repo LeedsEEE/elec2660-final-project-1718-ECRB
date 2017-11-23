@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C4949101FC7444300F47F14 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C49490F1FC7444300F47F14 /* DataModel.m */; };
 		8C90231A1FC47DBF00466BEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023191FC47DBF00466BEF /* main.m */; };
 		8C90231D1FC47DBF00466BEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90231C1FC47DBF00466BEF /* AppDelegate.m */; };
 		8C9023201FC47DBF00466BEF /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90231F1FC47DBF00466BEF /* MasterViewController.m */; };
@@ -16,8 +17,8 @@
 		8C90232B1FC47DBF00466BEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */; };
 		8C9023361FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023351FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m */; };
 		8C9023411FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */; };
-		8C9023501FC480FF00466BEF /* SubjectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* SubjectData.m */; };
-		8C9023531FC4811A00466BEF /* EntryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* EntryData.m */; };
+		8C9023501FC480FF00466BEF /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* Subject.m */; };
+		8C9023531FC4811A00466BEF /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* Entry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C49490E1FC7444300F47F14 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		8C49490F1FC7444300F47F14 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		8C9023151FC47DBF00466BEF /* The Growth Zone Model.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Growth Zone Model.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9023191FC47DBF00466BEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C90231B1FC47DBF00466BEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,10 +59,10 @@
 		8C90233C1FC47DBF00466BEF /* The Growth Zone ModelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Growth Zone ModelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Growth_Zone_ModelUITests.m; sourceTree = "<group>"; };
 		8C9023421FC47DBF00466BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C90234E1FC480FF00466BEF /* SubjectData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectData.h; sourceTree = "<group>"; };
-		8C90234F1FC480FF00466BEF /* SubjectData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectData.m; sourceTree = "<group>"; };
-		8C9023511FC4811900466BEF /* EntryData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryData.h; sourceTree = "<group>"; };
-		8C9023521FC4811A00466BEF /* EntryData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryData.m; sourceTree = "<group>"; };
+		8C90234E1FC480FF00466BEF /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
+		8C90234F1FC480FF00466BEF /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subject.m; sourceTree = "<group>"; };
+		8C9023511FC4811900466BEF /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		8C9023521FC4811A00466BEF /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,13 +117,15 @@
 				8C90231C1FC47DBF00466BEF /* AppDelegate.m */,
 				8C90231E1FC47DBF00466BEF /* MasterViewController.h */,
 				8C90231F1FC47DBF00466BEF /* MasterViewController.m */,
+				8C49490E1FC7444300F47F14 /* DataModel.h */,
+				8C49490F1FC7444300F47F14 /* DataModel.m */,
 				8C9023211FC47DBF00466BEF /* DetailViewController.h */,
 				8C9023221FC47DBF00466BEF /* DetailViewController.m */,
 				8C9023241FC47DBF00466BEF /* Main.storyboard */,
-				8C90234E1FC480FF00466BEF /* SubjectData.h */,
-				8C90234F1FC480FF00466BEF /* SubjectData.m */,
-				8C9023511FC4811900466BEF /* EntryData.h */,
-				8C9023521FC4811A00466BEF /* EntryData.m */,
+				8C90234E1FC480FF00466BEF /* Subject.h */,
+				8C90234F1FC480FF00466BEF /* Subject.m */,
+				8C9023511FC4811900466BEF /* Entry.h */,
+				8C9023521FC4811A00466BEF /* Entry.m */,
 				8C9023271FC47DBF00466BEF /* Assets.xcassets */,
 				8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */,
 				8C90232C1FC47DBF00466BEF /* Info.plist */,
@@ -288,10 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9023531FC4811A00466BEF /* EntryData.m in Sources */,
+				8C9023531FC4811A00466BEF /* Entry.m in Sources */,
 				8C90231D1FC47DBF00466BEF /* AppDelegate.m in Sources */,
 				8C9023201FC47DBF00466BEF /* MasterViewController.m in Sources */,
-				8C9023501FC480FF00466BEF /* SubjectData.m in Sources */,
+				8C9023501FC480FF00466BEF /* Subject.m in Sources */,
+				8C4949101FC7444300F47F14 /* DataModel.m in Sources */,
 				8C90231A1FC47DBF00466BEF /* main.m in Sources */,
 				8C9023231FC47DBF00466BEF /* DetailViewController.m in Sources */,
 			);
@@ -525,6 +531,7 @@
 				8C9023471FC47DBF00466BEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C9023481FC47DBF00466BEF /* Build configuration list for PBXNativeTarget "The Growth Zone ModelTests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +540,7 @@
 				8C90234A1FC47DBF00466BEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C90234B1FC47DBF00466BEF /* Build configuration list for PBXNativeTarget "The Growth Zone ModelUITests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +549,7 @@
 				8C90234D1FC47DBF00466BEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

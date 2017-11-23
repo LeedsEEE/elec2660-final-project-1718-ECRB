@@ -6,7 +6,7 @@
 //  Copyright © 2017 Edward Baker [el16ecrb]. All rights reserved.
 //
 
-#import "SubjectData.h"
+#import "Subject.h"
 
 @implementation SubjectData
 
