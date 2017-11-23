@@ -11,7 +11,7 @@
 
 @interface MasterViewController ()
 
-@property NSMutableArray *subjects;
+//@property NSMutableArray *subjects;
 
 @end
 
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[SubjectData alloc] init]; // Initiate Subject Data
+    self.data = [[DataModel alloc] init]; // Initiate DataModel
     
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -44,10 +44,10 @@
 
 
 - (void)insertNewObject:(id)sender {
-    if (!self.subjects) {
-        self.subjects = [[NSMutableArray alloc] init];
+    if (!self.data.subjects) {
+        self.data.subjects = [[NSMutableArray alloc] init];
     }
-    [self.subjects insertObject:[NSDate date] atIndex:0];
+    [self.data.subjects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -58,7 +58,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.subjects[indexPath.row];
+        NSDate *object = self.data.subjects[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -75,14 +75,14 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.data.count;
+    return self.data.subjects.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell" forIndexPath:indexPath];
 
-    NSDate *object = self.subjects[indexPath.row];
+    NSDate *object = self.data.subjects[indexPath.row];
     cell.textLabel.text = [object description];
     return cell;
 }
@@ -96,7 +96,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.subjects removeObjectAtIndex:indexPath.row];
+        [self.data.subjects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

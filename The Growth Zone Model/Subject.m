@@ -8,6 +8,6 @@
 
 #import "Subject.h"
 
-@implementation SubjectData
+@implementation Subject
 
 @end

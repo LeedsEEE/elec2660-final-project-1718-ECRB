@@ -10,4 +10,22 @@
 
 @implementation DataModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+        self.subjects = [NSMutableArray array];
+        
+        Subject *testSubject = [[Subject alloc] init];
+        testSubject.title = @"Test";
+        testSubject.startDate = [NSDate date];
+        testSubject.finishDate = [NSDate date];
+        
+        [self.subjects addObject:testSubject];  // Create a test subject in index 0
+        
+    }
+    return self;
+}
+
 @end

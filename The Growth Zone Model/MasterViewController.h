@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SubjectData.h"
+#import "DataModel.h"
+
 
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-@property (strong, nonatomic) SubjectData *data;
+@property (strong, nonatomic) DataModel *data;
 
 @end
 

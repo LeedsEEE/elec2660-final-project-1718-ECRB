@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SubjectData : NSObject
+@interface Subject : NSObject
 
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *finishDate;
-@property NSInteger *progressGraph;
+@property NSMutableArray *progressGraph;
 @property (strong, nonatomic) NSString *entryArray;
 
 @end

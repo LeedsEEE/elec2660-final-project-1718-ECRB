@@ -8,6 +8,6 @@
 
 #import "Entry.h"
 
-@implementation EntryData
+@implementation Entry
 
 @end

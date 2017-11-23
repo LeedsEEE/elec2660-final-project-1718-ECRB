@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Subject.h"
 
 @interface DataModel : NSObject
+
+@property (strong, nonatomic) NSMutableArray *subjects;
 
 @end
