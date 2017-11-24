@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Subject.h"
+#import "Date.h"
 
 @interface DetailViewController : UIViewController
 
@@ -21,6 +22,7 @@
 
 @property (strong, nonatomic) Subject *subject;
 
+@property (strong, nonatomic) Date *date;
 
 @end
 
