@@ -52,7 +52,6 @@
                                         <rect key="frame" x="321" y="0.0" width="296" height="50"/>
                                         <color key="backgroundColor" white="0.75" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="296" id="ONs-TV-Axo"/>
                                             <constraint firstAttribute="height" constant="50" id="vPE-kx-qpG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -87,7 +86,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="20Y-w6-625" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="C5g-aU-Uqe"/>
+                            <constraint firstItem="20Y-w6-625" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="5" id="4iH-ZA-nN3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="20Y-w6-625" secondAttribute="trailing" constant="5" id="MWs-tM-2Uz"/>
                             <constraint firstItem="Wam-vR-6X9" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="5" id="OXJ-Pq-9rz"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="Tzz-S5-CFn" secondAttribute="bottom" constant="20" id="W8H-Zr-qZ3"/>
