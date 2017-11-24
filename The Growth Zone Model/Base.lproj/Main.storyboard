@@ -200,9 +200,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="296" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="4AM-HP-hPn" kind="showDetail" identifier="showDetail" id="gON-ay-fPE"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

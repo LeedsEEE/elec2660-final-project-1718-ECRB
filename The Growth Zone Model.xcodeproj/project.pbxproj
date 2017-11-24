@@ -20,7 +20,8 @@
 		8C9023501FC480FF00466BEF /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* Subject.m */; };
 		8C9023531FC4811A00466BEF /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* Entry.m */; };
 		A5DBD3641FC8D840000653BF /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD3631FC8D840000653BF /* Date.m */; };
-		A5DBD3671FC8E2BD000653BF /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD3661FC8E2BD000653BF /* EntryViewController.m */; };
+		A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36C1FC8E7C2000653BF /* EntryTableViewController.m */; };
+		A5DBD3701FC8E7DD000653BF /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36F1FC8E7DD000653BF /* EntryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +68,10 @@
 		8C9023521FC4811A00466BEF /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		A5DBD3621FC8D840000653BF /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
 		A5DBD3631FC8D840000653BF /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
-		A5DBD3651FC8E2BD000653BF /* EntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryViewController.h; sourceTree = "<group>"; };
-		A5DBD3661FC8E2BD000653BF /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
+		A5DBD36B1FC8E7C2000653BF /* EntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryTableViewController.h; path = ../EntryTableViewController.h; sourceTree = "<group>"; };
+		A5DBD36C1FC8E7C2000653BF /* EntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryTableViewController.m; path = ../EntryTableViewController.m; sourceTree = "<group>"; };
+		A5DBD36E1FC8E7DD000653BF /* EntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryViewController.h; sourceTree = "<group>"; };
+		A5DBD36F1FC8E7DD000653BF /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +128,10 @@
 				8C90231F1FC47DBF00466BEF /* MasterViewController.m */,
 				8C9023211FC47DBF00466BEF /* DetailViewController.h */,
 				8C9023221FC47DBF00466BEF /* DetailViewController.m */,
-				A5DBD3651FC8E2BD000653BF /* EntryViewController.h */,
-				A5DBD3661FC8E2BD000653BF /* EntryViewController.m */,
+				A5DBD36B1FC8E7C2000653BF /* EntryTableViewController.h */,
+				A5DBD36C1FC8E7C2000653BF /* EntryTableViewController.m */,
+				A5DBD36E1FC8E7DD000653BF /* EntryViewController.h */,
+				A5DBD36F1FC8E7DD000653BF /* EntryViewController.m */,
 				A5DBD3621FC8D840000653BF /* Date.h */,
 				A5DBD3631FC8D840000653BF /* Date.m */,
 				8C49490E1FC7444300F47F14 /* DataModel.h */,
@@ -307,9 +312,10 @@
 				8C90231D1FC47DBF00466BEF /* AppDelegate.m in Sources */,
 				8C9023201FC47DBF00466BEF /* MasterViewController.m in Sources */,
 				8C9023501FC480FF00466BEF /* Subject.m in Sources */,
-				A5DBD3671FC8E2BD000653BF /* EntryViewController.m in Sources */,
 				8C4949101FC7444300F47F14 /* DataModel.m in Sources */,
+				A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */,
 				8C90231A1FC47DBF00466BEF /* main.m in Sources */,
+				A5DBD3701FC8E7DD000653BF /* EntryViewController.m in Sources */,
 				8C9023231FC47DBF00466BEF /* DetailViewController.m in Sources */,
 				A5DBD3641FC8D840000653BF /* Date.m in Sources */,
 			);

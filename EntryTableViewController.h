@@ -1,5 +1,5 @@
 //
-//  EntryViewController.h
+//  EntryTableViewController.h
 //  The Growth Zone Model
 //
 //  Created by Edward Baker on 24/11/2017.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EntryViewController : UIViewController
+@interface EntryTableViewController : UITableViewController
 
 @end
