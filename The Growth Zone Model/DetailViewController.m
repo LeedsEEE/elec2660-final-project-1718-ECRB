@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 
+
+
 @interface DetailViewController ()
 
 @end
@@ -15,9 +17,18 @@
 @implementation DetailViewController
 
 - (void)configureView {
-    // Update the user interface for the detail item.
     if (self.subject) {
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateStyle = NSDateFormatterShortStyle;
+        dateFormatter.timeStyle = NSDateFormatterNoStyle;
+        
+        dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
+        [dateFormatter setLocalizedDateFormatFromTemplate:@"yMd"];
+        
         self.subjectNavigation.title = self.subject.title;
+        NSLog(@"%@", [dateFormatter stringFromDate:self.subject.startDate]);
+        //self.startDate.text = [NSDateFormatter localizedStringFromDate: self.subject.startDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
     }
 }
 

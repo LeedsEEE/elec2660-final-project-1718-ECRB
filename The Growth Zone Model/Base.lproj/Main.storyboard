@@ -41,14 +41,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="20Y-w6-625">
                                 <rect key="frame" x="25" y="190" width="617" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uq-Ll-lE2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uq-Ll-lE2">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="50"/>
                                         <color key="backgroundColor" white="0.75" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpQ-xZ-JHv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpQ-xZ-JHv">
                                         <rect key="frame" x="321" y="0.0" width="296" height="50"/>
                                         <color key="backgroundColor" white="0.75" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -70,7 +70,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="90"/>
                                         <color key="backgroundColor" red="0.47843137254901957" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="New Entry">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
@@ -98,11 +98,10 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
-                        <outlet property="Entry" destination="Wam-vR-6X9" id="1Zh-MF-5NC"/>
-                        <outlet property="finishDate" destination="NpQ-xZ-JHv" id="iat-YA-kf0"/>
-                        <outlet property="pastEntries" destination="HWi-Iy-m9D" id="OA4-lm-uHM"/>
-                        <outlet property="startDate" destination="1uq-Ll-lE2" id="Uwy-q0-rWK"/>
-                        <outlet property="subject" destination="mOI-FS-AaM" id="mHk-nc-Jbi"/>
+                        <outlet property="BTCreateEntry" destination="Wam-vR-6X9" id="aq1-Y4-HDK"/>
+                        <outlet property="LBFinishDate" destination="NpQ-xZ-JHv" id="bnQ-yJ-pC2"/>
+                        <outlet property="LBStartDate" destination="1uq-Ll-lE2" id="I9D-Ny-Y5b"/>
+                        <outlet property="TBPastEntries" destination="HWi-Iy-m9D" id="CUT-Ct-ppZ"/>
                         <outlet property="subjectNavigation" destination="mOI-FS-AaM" id="IQh-iW-IHk"/>
                     </connections>
                 </viewController>

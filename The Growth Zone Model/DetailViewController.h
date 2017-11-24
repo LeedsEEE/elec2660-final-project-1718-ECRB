@@ -13,11 +13,11 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *subjectNavigation;
 
-@property (weak, nonatomic) IBOutlet UILabel *startDate;
-@property (weak, nonatomic) IBOutlet UILabel *finishDate;
+@property (weak, nonatomic) IBOutlet UILabel *LBStartDate;
+@property (weak, nonatomic) IBOutlet UILabel *LBFinishDate;
 
-@property (weak, nonatomic) IBOutlet UIButton *Entry;
-@property (weak, nonatomic) IBOutlet UITableView *pastEntries;
+@property (weak, nonatomic) IBOutlet UIButton *BTCreateEntry;
+@property (weak, nonatomic) IBOutlet UITableView *TBPastEntries;
 
 @property (strong, nonatomic) Subject *subject;
 
