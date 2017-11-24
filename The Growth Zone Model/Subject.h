@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSDate *startDate;
 @property (strong, nonatomic) NSDate *finishDate;
 @property NSMutableArray *progressGraph;
-@property (strong, nonatomic) NSString *entryArray;
+
+@property (strong, nonatomic) NSMutableArray *entrys;
 
 @end

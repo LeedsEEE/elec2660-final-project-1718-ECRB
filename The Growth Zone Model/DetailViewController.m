@@ -21,6 +21,7 @@
         self.date = [[Date alloc] init]; //Initiate local DateFormatter
         self.LBStartDate.text = [self.date.dateFormatter stringFromDate:self.subject.startDate];
         self.LBFinishDate.text = [self.date.dateFormatter stringFromDate:self.subject.finishDate];
+        
     }
 }
 
