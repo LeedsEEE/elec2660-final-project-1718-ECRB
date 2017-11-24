@@ -11,9 +11,11 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) NSDate *detailItem;
+@property (weak, nonatomic) IBOutlet UILabel *startDate;
+@property (weak, nonatomic) IBOutlet UILabel *finishDate;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *newEntry;
+@property (weak, nonatomic) IBOutlet UITableView *pastEntries;
 
 @property (strong, nonatomic) Subject *subject;
 
