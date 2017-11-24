@@ -11,6 +11,8 @@
 
 @interface MasterViewController ()
 
+//@property NSMutableArray *subjects;
+
 @end
 
 @implementation MasterViewController

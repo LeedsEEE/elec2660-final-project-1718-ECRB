@@ -103,6 +103,7 @@
                         <outlet property="BTCreateEntry" destination="Wam-vR-6X9" id="aq1-Y4-HDK"/>
                         <outlet property="LBFinishDate" destination="NpQ-xZ-JHv" id="bnQ-yJ-pC2"/>
                         <outlet property="LBStartDate" destination="1uq-Ll-lE2" id="I9D-Ny-Y5b"/>
+                        <outlet property="TBPastEntries" destination="aqp-MW-Wkk" id="5bV-w9-WlG"/>
                         <outlet property="subjectNavigation" destination="mOI-FS-AaM" id="IQh-iW-IHk"/>
                     </connections>
                 </viewController>

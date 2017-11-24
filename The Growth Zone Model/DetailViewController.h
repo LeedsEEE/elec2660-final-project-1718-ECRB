@@ -18,7 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *LBFinishDate;
 
 @property (weak, nonatomic) IBOutlet UIButton *BTCreateEntry;
-@property (weak, nonatomic) IBOutlet UITableView *TBPastEntries;
+
+@property (weak, nonatomic) IBOutlet UIView *TBPastEntries; //Unsure if Needed
 
 @property (strong, nonatomic) Subject *subject;
 

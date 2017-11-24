@@ -15,6 +15,9 @@
 @implementation DetailViewController
 
 - (void)configureView {
+    
+    self.BTCreateEntry.layer.cornerRadius = 10;
+    
     if (self.subject) {
         self.subjectNavigation.title = self.subject.title;
         
