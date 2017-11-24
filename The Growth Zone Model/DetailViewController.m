@@ -19,8 +19,8 @@
         self.subjectNavigation.title = self.subject.title;
         
         self.date = [[Date alloc] init]; //Initiate local DateFormatter
-        NSLog(@"%@", [self.date.dateFormatter stringFromDate:self.subject.startDate]);
-        //self.startDate.text = [NSDateFormatter localizedStringFromDate: self.subject.startDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle];
+        self.LBStartDate.text = [self.date.dateFormatter stringFromDate:self.subject.startDate];
+        self.LBFinishDate.text = [self.date.dateFormatter stringFromDate:self.subject.finishDate];
     }
 }
 
