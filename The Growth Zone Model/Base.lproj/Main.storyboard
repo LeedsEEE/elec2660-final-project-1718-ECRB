@@ -99,10 +99,12 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="Entry" destination="Wam-vR-6X9" id="1Zh-MF-5NC"/>
                         <outlet property="finishDate" destination="NpQ-xZ-JHv" id="iat-YA-kf0"/>
-                        <outlet property="newEntry" destination="Wam-vR-6X9" id="2gN-xf-Ax7"/>
                         <outlet property="pastEntries" destination="HWi-Iy-m9D" id="OA4-lm-uHM"/>
                         <outlet property="startDate" destination="1uq-Ll-lE2" id="Uwy-q0-rWK"/>
+                        <outlet property="subject" destination="mOI-FS-AaM" id="mHk-nc-Jbi"/>
+                        <outlet property="subjectNavigation" destination="mOI-FS-AaM" id="IQh-iW-IHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

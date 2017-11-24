@@ -17,10 +17,9 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.subject) {
-        self.detailDescriptionLabel.text = self.subject.title;
+        self.subjectNavigation.title = self.subject.title;
     }
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,18 +31,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(NSDate *)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
 }
 
 
