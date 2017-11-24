@@ -57,12 +57,17 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
+        DetailViewController *detailViewController = (DetailViewController *)[[segue destinationViewController] topViewController];
+        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.data.subjects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
-        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        controller.navigationItem.leftItemsSupplementBackButton = YES;
+        
+        Subject *tempSubject = [self.data.subjects objectAtIndex:indexPath.row];
+        detailViewController.subject = tempSubject;
+        
+        detailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        detailViewController.navigationItem.leftItemsSupplementBackButton = YES;
+        
     }
 }
 
