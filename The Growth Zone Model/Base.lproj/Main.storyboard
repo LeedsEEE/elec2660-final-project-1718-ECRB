@@ -210,7 +210,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="4AM-HP-hPn" kind="show" id="pSo-oU-F97"/>
+                                    <segue destination="4AM-HP-hPn" kind="show" identifier="showEntryDetail" id="pSo-oU-F97"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

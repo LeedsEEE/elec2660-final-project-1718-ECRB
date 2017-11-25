@@ -18,9 +18,8 @@
     [super viewDidLoad];
     
     self.date = [[Date alloc] init];
-    
-    
-    self.navigation.topItem.title = [self.date.dateFormatter stringFromDate:self.entry.date];
+
+    self.title = [self.date.dateFormatter stringFromDate:self.entry.date];
     
     // Do any additional setup after loading the view.
 }
