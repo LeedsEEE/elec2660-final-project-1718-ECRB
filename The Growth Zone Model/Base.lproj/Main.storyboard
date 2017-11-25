@@ -184,6 +184,22 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JFp-13-dPo">
+            <objects>
+                <navigationController id="aeO-GW-7ri" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ed-ak-5XU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4AM-HP-hPn" kind="relationship" relationship="rootViewController" id="hIL-oa-sxL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9qb-5M-UdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-45" y="898"/>
+        </scene>
         <!--Entry Table View Controller-->
         <scene sceneID="0rf-Me-jaN">
             <objects>
@@ -210,7 +226,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="4AM-HP-hPn" kind="showDetail" id="6Y4-Te-Ll3"/>
+                                    <segue destination="aeO-GW-7ri" kind="showDetail" identifier="showDetail" id="vDH-4W-w3W"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -223,7 +239,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRS-kt-Bsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="734"/>
+            <point key="canvasLocation" x="-857" y="670"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="aOz-KT-IkB">
@@ -238,10 +254,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sug-rP-50w"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLr-Ye-wgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="707" y="1348"/>
+            <point key="canvasLocation" x="707" y="897"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
