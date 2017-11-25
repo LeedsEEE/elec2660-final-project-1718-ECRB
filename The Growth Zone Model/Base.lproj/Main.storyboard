@@ -241,7 +241,7 @@
             </objects>
             <point key="canvasLocation" x="-857" y="670"/>
         </scene>
-        <!--Entry View Controller-->
+        <!--Test-->
         <scene sceneID="aOz-KT-IkB">
             <objects>
                 <viewController id="4AM-HP-hPn" customClass="EntryViewController" sceneMemberID="viewController">
@@ -254,7 +254,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sug-rP-50w"/>
+                    <navigationItem key="navigationItem" title="Test" id="sug-rP-50w"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLr-Ye-wgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
