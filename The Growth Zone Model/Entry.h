@@ -10,4 +10,12 @@
 
 @interface Entry : NSObject
 
+@property (strong, nonatomic) NSDate *date;
+
+@property (strong, nonatomic) NSString *note;
+
+@property NSInteger *comfortArea;
+@property NSInteger *growthArea;
+@property NSInteger *anxietyArea;
+
 @end
