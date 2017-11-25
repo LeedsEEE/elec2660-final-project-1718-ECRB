@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Subject.h"
 
 @interface EntryTableViewController : UITableViewController
+
+@property (strong, nonatomic) Subject *data;
 
 @end
