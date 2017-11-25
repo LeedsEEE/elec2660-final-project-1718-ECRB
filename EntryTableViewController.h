@@ -10,6 +10,7 @@
 #import "Subject.h"
 #import "EntryViewController.h"
 #import "Date.h"
+#import "DetailViewController.h"
 
 @interface EntryTableViewController : UITableViewController
 

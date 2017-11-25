@@ -40,4 +40,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)hideMaster {
+    [self.subjectNavigation.leftBarButtonItem.target performSelector:self.subjectNavigation.leftBarButtonItem.action];
+}
+
 @end

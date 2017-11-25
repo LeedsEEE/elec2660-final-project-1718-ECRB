@@ -107,6 +107,7 @@
         
         Entry *tempEntry = [self.data.entrys objectAtIndex:indexPath.row];
         destinationViewController.entry = tempEntry;
+
         
     }
 }
