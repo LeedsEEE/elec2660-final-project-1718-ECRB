@@ -84,8 +84,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell" forIndexPath:indexPath];
-
-    //NSDate *object = self.data.subjects[indexPath.row];
     
     Subject *tempSubject = [self.data.subjects objectAtIndex:indexPath.row];
     

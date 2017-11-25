@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[Subject alloc] init];
+    self.data = [[Subject alloc] init]; //Initialise DataModel
+    self.date = [[Date alloc] init];    //Initialise local DateFormatter
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -35,7 +36,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -51,7 +52,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    Entry *tempEntry = [self.data.entrys objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.date.dateFormatter stringFromDate:tempEntry.date];
     
     return cell;
 }

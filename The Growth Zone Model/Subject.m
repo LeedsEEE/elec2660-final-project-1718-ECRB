@@ -10,4 +10,20 @@
 
 @implementation Subject
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+        self.entrys = [NSMutableArray array];
+        
+        Entry *testEntry = [[Entry alloc] init];
+        testEntry.date = [NSDate date];
+        
+        [self.entrys addObject:testEntry]; // Create a test entry
+        
+    }
+    return self;
+}
+
 @end

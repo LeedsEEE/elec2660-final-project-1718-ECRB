@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Entry.h"
 
 @interface Subject : NSObject
 

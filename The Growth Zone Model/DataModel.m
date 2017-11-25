@@ -22,7 +22,7 @@
         testSubject.startDate = [NSDate date];
         testSubject.finishDate = [NSDate date];
         
-        [self.subjects addObject:testSubject];  // Create a test subject in index 0
+        [self.subjects addObject:testSubject];  // Create a test subject
         
     }
     return self;

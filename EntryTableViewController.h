@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Subject.h"
+#import "Date.h"
 
 @interface EntryTableViewController : UITableViewController
 
 @property (strong, nonatomic) Subject *data;
+@property (strong, nonatomic) Date *date;
 
 @end
