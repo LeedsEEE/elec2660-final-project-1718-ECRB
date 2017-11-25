@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.date = [[Date alloc] init];
+    
+    
+    self.navigationBar.topItem.title = [self.date.dateFormatter stringFromDate:self.entry.date];
+    
     //[self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     
     // Do any additional setup after loading the view.

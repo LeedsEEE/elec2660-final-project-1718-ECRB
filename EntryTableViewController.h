@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Subject.h"
+#import "EntryViewController.h"
 #import "Date.h"
 
 @interface EntryTableViewController : UITableViewController

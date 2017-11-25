@@ -184,22 +184,6 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="JFp-13-dPo">
-            <objects>
-                <navigationController id="aeO-GW-7ri" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5ed-ak-5XU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4AM-HP-hPn" kind="relationship" relationship="rootViewController" id="hIL-oa-sxL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9qb-5M-UdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-45" y="898"/>
-        </scene>
         <!--Entry Table View Controller-->
         <scene sceneID="0rf-Me-jaN">
             <objects>
@@ -226,7 +210,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="aeO-GW-7ri" kind="showDetail" identifier="showDetail" id="vDH-4W-w3W"/>
+                                    <segue destination="4AM-HP-hPn" kind="showDetail" identifier="showEntryDetail" id="049-nf-tHH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -239,9 +223,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRS-kt-Bsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-857" y="670"/>
+            <point key="canvasLocation" x="-39" y="896"/>
         </scene>
-        <!--Test-->
+        <!--Entry View Controller-->
         <scene sceneID="aOz-KT-IkB">
             <objects>
                 <viewController id="4AM-HP-hPn" customClass="EntryViewController" sceneMemberID="viewController">
@@ -252,9 +236,23 @@
                     <view key="view" contentMode="scaleToFill" id="sLY-WJ-J1I">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AuL-eu-hei">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="9Nw-d8-3dk"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Test" id="sug-rP-50w"/>
+                    <navigationItem key="navigationItem" id="sug-rP-50w"/>
+                    <connections>
+                        <outlet property="entryNavigation" destination="sug-rP-50w" id="7dP-sN-PEE"/>
+                        <outlet property="navigationBar" destination="AuL-eu-hei" id="taK-Bt-vQ3"/>
+                        <outlet property="navigationItem" destination="sug-rP-50w" id="8gf-Nb-372"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLr-Ye-wgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
