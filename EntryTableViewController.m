@@ -108,6 +108,7 @@
         Entry *tempEntry = [self.data.entrys objectAtIndex:indexPath.row];
         destinationViewController.entry = tempEntry;
 
+        self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the 
         
     }
 }
