@@ -12,8 +12,7 @@
 
 @interface EntryViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UINavigationItem *entryNavigation;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigation;
 
 @property (strong, nonatomic) Entry *entry;
 @property (strong, nonatomic) Date *date;

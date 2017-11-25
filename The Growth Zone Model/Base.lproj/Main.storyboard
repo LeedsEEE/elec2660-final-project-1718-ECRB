@@ -210,7 +210,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="4AM-HP-hPn" kind="showDetail" identifier="showEntryDetail" id="049-nf-tHH"/>
+                                    <segue destination="4AM-HP-hPn" kind="show" id="pSo-oU-F97"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -223,7 +223,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRS-kt-Bsz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="896"/>
+            <point key="canvasLocation" x="541" y="771"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="aOz-KT-IkB">
@@ -234,11 +234,11 @@
                         <viewControllerLayoutGuide type="bottom" id="lqH-O6-gRM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sLY-WJ-J1I">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="296" height="90"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AuL-eu-hei">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="9Nw-d8-3dk"/>
@@ -247,16 +247,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sug-rP-50w"/>
                     <connections>
-                        <outlet property="entryNavigation" destination="sug-rP-50w" id="7dP-sN-PEE"/>
-                        <outlet property="navigationBar" destination="AuL-eu-hei" id="taK-Bt-vQ3"/>
-                        <outlet property="navigationItem" destination="sug-rP-50w" id="8gf-Nb-372"/>
+                        <outlet property="navigation" destination="AuL-eu-hei" id="Hjb-wg-Suu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLr-Ye-wgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="707" y="897"/>
+            <point key="canvasLocation" x="875" y="770"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
