@@ -16,7 +16,10 @@
 
 - (void)configureView {
     
-    self.BTCreateEntry.layer.cornerRadius = 10;
+    self.BTCreateEntry.layer.cornerRadius = 10.0f;
+    self.TBPastEntries.layer.borderColor = [[UIColor grayColor]CGColor];
+    self.TBPastEntries.layer.borderWidth = 3.0f;
+
     
     if (self.subject) {
         self.subjectNavigation.title = self.subject.title;
