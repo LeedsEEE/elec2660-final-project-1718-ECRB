@@ -40,8 +40,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)hideMaster {
-    [self.subjectNavigation.leftBarButtonItem.target performSelector:self.subjectNavigation.leftBarButtonItem.action];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"showNewEntry"]) {
+        
+        self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden
+        
+    }
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "Subject.h"
 #import "Date.h"
 
+
 @interface DetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *subjectNavigation;
@@ -26,4 +27,3 @@
 @property (strong, nonatomic) Date *date;
 
 @end
-
