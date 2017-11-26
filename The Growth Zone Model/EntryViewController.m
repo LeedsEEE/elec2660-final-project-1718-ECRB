@@ -18,9 +18,12 @@
     [super viewDidLoad];
     
     self.date = [[Date alloc] init];
-
-    self.title = [self.date.dateFormatter stringFromDate:self.entry.date];
     
+    if (self.entry) {
+        self.title = [self.date.dateFormatter stringFromDate:self.entry.date];
+    } else {
+        self.title = @"Test";
+    }
     // Do any additional setup after loading the view.
 }
 

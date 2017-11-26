@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigation;
 
 @property (strong, nonatomic) Entry *entry;
+
 @property (strong, nonatomic) Date *date;
 
 @end
