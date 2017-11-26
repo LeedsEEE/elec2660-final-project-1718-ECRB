@@ -22,8 +22,8 @@
         self.subjectNavigation.title = self.subject.title;
         
         self.date = [[Date alloc] init]; //Initiate local DateFormatter
-        self.LBStartDate.text = [self.date.dateFormatter stringFromDate:self.subject.startDate];
-        self.LBFinishDate.text = [self.date.dateFormatter stringFromDate:self.subject.finishDate];
+        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [self.date.dateFormatter stringFromDate:self.subject.startDate], [self.date.dateFormatter stringFromDate:self.subject.finishDate]];
+    
         
     }
 }

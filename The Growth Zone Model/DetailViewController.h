@@ -14,8 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *subjectNavigation;
 
-@property (weak, nonatomic) IBOutlet UILabel *LBStartDate;
-@property (weak, nonatomic) IBOutlet UILabel *LBFinishDate;
+@property (weak, nonatomic) IBOutlet UILabel *LBDates;
+@property (weak, nonatomic) IBOutlet UILabel *LBPastEntries;
 
 @property (weak, nonatomic) IBOutlet UIButton *BTCreateEntry;
 
