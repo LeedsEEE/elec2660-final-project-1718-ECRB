@@ -19,16 +19,21 @@
     
     self.date = [[Date alloc] init]; //Set the date of the entry as the current date
     
-    self.VComfort.layer.borderWidth = 2.0f;
-    self.VGrowth.layer.borderWidth = 2.0f;
-    self.VAnxiety.layer.borderWidth = 2.0f;
-    //self.TVNote.layer.borderWidth = 2.0f;
-    self.VNote.layer.borderWidth = 2.0f;
+    self.VComfort.layer.borderWidth = 2.0f; //Set Borders around UI objects
+    self.VGrowth.layer.borderWidth = 2.0f;  //
+    self.VAnxiety.layer.borderWidth = 2.0f; //
+    self.VNote.layer.borderWidth = 2.0f;    //
     
-    if (self.entry) {
-        self.title = [self.date.dateFormatter stringFromDate:self.entry.date];
-    } else {
-        self.title = @"Test";
+    if (self.entry) { //Input saved entry data to UI
+        self.title = [self.date.dateFormatter stringFromDate:self.entry.date]; //Set title to relevant Entry date
+        self.TVNote.text = self.entry.note;                                    //Set text field to relevant entry data
+        self.LBComfortPercentage.text = [NSString stringWithFormat:@"%d%%", self.entry.comfortArea]; //Format and set the
+        self.LBGrowthPercentage.text = [NSString stringWithFormat:@"%d%%", self.entry.growthArea];   //percentages to the
+        self.LBAnxietyPercentage.text = [NSString stringWithFormat:@"%d%%", self.entry.anxietyArea]; //relevant entry data
+        
+    } else { // Set up data for a new entry
+        
+        self.title = @"New Entry";
     }
     // Do any additional setup after loading the view.
 }

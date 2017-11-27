@@ -19,6 +19,8 @@
         
         Entry *testEntry = [[Entry alloc] init];
         testEntry.date = [NSDate date];
+        testEntry.note = @"TestNote";
+        testEntry.anxietyArea = 10;
         
         [self.entrys addObject:testEntry]; // Create a test entry
         

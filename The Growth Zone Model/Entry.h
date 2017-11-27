@@ -14,8 +14,8 @@
 
 @property (strong, nonatomic) NSString *note;
 
-@property NSInteger *comfortArea;
-@property NSInteger *growthArea;
-@property NSInteger *anxietyArea;
+@property int comfortArea;
+@property int growthArea;
+@property int anxietyArea;
 
 @end
