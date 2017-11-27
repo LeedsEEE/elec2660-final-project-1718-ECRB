@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigation;
 
-
+@property (weak, nonatomic) IBOutlet UIStackView *SVRight;
 
 @property (weak, nonatomic) IBOutlet UIStackView *SVComfort;
 @property (weak, nonatomic) IBOutlet UILabel *LBComfortPercentage;
@@ -28,10 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *LBAnxietyPercentage;
 @property (weak, nonatomic) IBOutlet UILabel *LBAnxiety;
 
+@property (weak, nonatomic) IBOutlet UIStackView *SVNote;
 @property (weak, nonatomic) IBOutlet UITextView *TVNote;
-
-
-
 
 @property (strong, nonatomic) Entry *entry;
 

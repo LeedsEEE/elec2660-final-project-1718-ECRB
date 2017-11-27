@@ -363,6 +363,8 @@
                         <outlet property="SVAnxiety" destination="8fV-b5-3VV" id="rSv-JH-uWS"/>
                         <outlet property="SVComfort" destination="Ah4-Gg-hoH" id="NqI-6A-CCg"/>
                         <outlet property="SVGrowth" destination="oNe-Hy-PFF" id="sKa-8j-gLb"/>
+                        <outlet property="SVNote" destination="hmW-S1-rEY" id="WTa-ik-9m4"/>
+                        <outlet property="SVRight" destination="0kL-Rj-dVX" id="8yg-tz-c0g"/>
                         <outlet property="TVNote" destination="BBG-Dm-e8a" id="pA2-Ud-0DI"/>
                         <outlet property="navigation" destination="AuL-eu-hei" id="Hjb-wg-Suu"/>
                     </connections>
