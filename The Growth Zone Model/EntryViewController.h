@@ -12,7 +12,7 @@
 
 @interface EntryViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigation;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *BTSave;
 
 @property (weak, nonatomic) IBOutlet UIStackView *SVRight;
 

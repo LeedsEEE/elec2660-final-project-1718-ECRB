@@ -18,11 +18,8 @@
     [super viewDidLoad];
     
     self.date = [[Date alloc] init]; //Set the date of the entry as the current date
+
     
-    self.VComfort.layer.borderWidth = 2.0f; //Set Borders around UI objects
-    self.VGrowth.layer.borderWidth = 2.0f;  //
-    self.VAnxiety.layer.borderWidth = 2.0f; //
-    self.VNote.layer.borderWidth = 2.0f;    //
     
     if (self.entry) { //Input saved entry data to UI
         self.title = [self.date.dateFormatter stringFromDate:self.entry.date]; //Set title to relevant Entry date
@@ -35,12 +32,25 @@
         
         self.title = @"New Entry";
     }
-    // Do any additional setup after loading the view.
+    
+    // UI CONFIGURATION
+    self.VComfort.layer.borderWidth = 2.0f; //Set Borders around UI objects
+    self.VGrowth.layer.borderWidth = 2.0f;  //
+    self.VAnxiety.layer.borderWidth = 2.0f; //
+    self.VNote.layer.borderWidth = 2.0f;    //
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)saveAction:(id)sender {
+    if(self.entry){
+        self.entry.note = self.TVNote.text;
+    }
 }
 
 /*

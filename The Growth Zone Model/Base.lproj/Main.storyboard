@@ -230,7 +230,7 @@
             </objects>
             <point key="canvasLocation" x="129" y="720"/>
         </scene>
-        <!--Entry View Controller-->
+        <!--New-->
         <scene sceneID="aOz-KT-IkB">
             <objects>
                 <viewController id="4AM-HP-hPn" customClass="EntryViewController" sceneMemberID="viewController">
@@ -242,10 +242,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AuL-eu-hei">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="0kL-Rj-dVX">
                                 <rect key="frame" x="335" y="84" width="307" height="271"/>
                                 <subviews>
@@ -398,7 +394,15 @@
                             <constraint firstItem="0kL-Rj-dVX" firstAttribute="leading" secondItem="sLY-WJ-J1I" secondAttribute="leadingMargin" constant="315" id="fFO-ur-zu7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New" id="a6U-fl-aT0">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="fsg-xN-MfB">
+                            <connections>
+                                <action selector="saveAction:" destination="4AM-HP-hPn" id="42L-Oj-PS5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="BTSave" destination="fsg-xN-MfB" id="Z8n-Ih-uho"/>
                         <outlet property="LBAnxiety" destination="T0M-GG-Mll" id="A3x-cx-a85"/>
                         <outlet property="LBAnxietyPercentage" destination="lDe-NK-CvP" id="O6k-PV-9X7"/>
                         <outlet property="LBComfort" destination="MbW-eP-Onp" id="hB8-an-NJt"/>
@@ -415,16 +419,15 @@
                         <outlet property="VComfort" destination="IyJ-cm-g7H" id="vd9-aY-nZk"/>
                         <outlet property="VGrowth" destination="FoO-9X-MKw" id="tru-lF-075"/>
                         <outlet property="VNote" destination="idr-ub-gzi" id="MUy-0n-rbQ"/>
-                        <outlet property="navigation" destination="AuL-eu-hei" id="Hjb-wg-Suu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLr-Ye-wgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706.59670164917543" y="1021.6"/>
+            <point key="canvasLocation" x="718" y="1017"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pLD-u5-7WO"/>
         <segue reference="6S0-TO-JiA"/>
+        <segue reference="pLD-u5-7WO"/>
     </inferredMetricsTieBreakers>
 </document>
