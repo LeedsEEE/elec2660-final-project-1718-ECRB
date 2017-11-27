@@ -48,8 +48,26 @@
 }
 
 - (IBAction)saveAction:(id)sender {
-    if(self.entry){
+    if(self.entry){ //
         self.entry.note = self.TVNote.text;
+
+        #warning get area data
+        //self.entry.comfortArea =
+        //self.entry.growthArea =
+        //self.entry.anxietyArea =
+        
+    } else {
+        Entry *tempEntry = [[Entry alloc] init];
+        tempEntry.date = [NSDate date];
+        tempEntry.note = self.TVNote.text;
+        
+        #warning get area data
+        //tempEntry.comfortArea =
+        //tempEntry.growthArea =
+        //tempEntry.anxietyArea =
+        
+        //[subject.entrys addObject:tempEntry];
+        
     }
 }
 

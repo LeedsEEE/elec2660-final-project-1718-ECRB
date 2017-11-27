@@ -19,6 +19,7 @@
 		8C9023411FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */; };
 		8C9023501FC480FF00466BEF /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* Subject.m */; };
 		8C9023531FC4811A00466BEF /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* Entry.m */; };
+		A503D0EB1FCC86120071C19C /* GrowthZone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A503D0E91FCC86120071C19C /* GrowthZone.xcdatamodeld */; };
 		A5DBD3641FC8D840000653BF /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD3631FC8D840000653BF /* Date.m */; };
 		A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36C1FC8E7C2000653BF /* EntryTableViewController.m */; };
 		A5DBD3701FC8E7DD000653BF /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36F1FC8E7DD000653BF /* EntryViewController.m */; };
@@ -66,6 +67,7 @@
 		8C90234F1FC480FF00466BEF /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subject.m; sourceTree = "<group>"; };
 		8C9023511FC4811900466BEF /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		8C9023521FC4811A00466BEF /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		A503D0EA1FCC86120071C19C /* GrowthZone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrowthZone.xcdatamodel; sourceTree = "<group>"; };
 		A5DBD3621FC8D840000653BF /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
 		A5DBD3631FC8D840000653BF /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		A5DBD36B1FC8E7C2000653BF /* EntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryTableViewController.h; path = ../EntryTableViewController.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		8C9023171FC47DBF00466BEF /* The Growth Zone Model */ = {
 			isa = PBXGroup;
 			children = (
+				A503D0E91FCC86120071C19C /* GrowthZone.xcdatamodeld */,
 				8C90231B1FC47DBF00466BEF /* AppDelegate.h */,
 				8C90231C1FC47DBF00466BEF /* AppDelegate.m */,
 				8C90231E1FC47DBF00466BEF /* MasterViewController.h */,
@@ -311,6 +314,7 @@
 				8C9023531FC4811A00466BEF /* Entry.m in Sources */,
 				8C90231D1FC47DBF00466BEF /* AppDelegate.m in Sources */,
 				8C9023201FC47DBF00466BEF /* MasterViewController.m in Sources */,
+				A503D0EB1FCC86120071C19C /* GrowthZone.xcdatamodeld in Sources */,
 				8C9023501FC480FF00466BEF /* Subject.m in Sources */,
 				8C4949101FC7444300F47F14 /* DataModel.m in Sources */,
 				A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */,
@@ -572,6 +576,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A503D0E91FCC86120071C19C /* GrowthZone.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A503D0EA1FCC86120071C19C /* GrowthZone.xcdatamodel */,
+			);
+			currentVersion = A503D0EA1FCC86120071C19C /* GrowthZone.xcdatamodel */;
+			path = GrowthZone.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8C90230D1FC47DBE00466BEF /* Project object */;
 }
