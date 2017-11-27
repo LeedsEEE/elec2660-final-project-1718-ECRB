@@ -17,7 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.date = [[Date alloc] init];
+    self.date = [[Date alloc] init]; //Set the date of the entry as the current date
+    
+    self.VComfort.layer.borderWidth = 2.0f;
+    self.VGrowth.layer.borderWidth = 2.0f;
+    self.VAnxiety.layer.borderWidth = 2.0f;
+    //self.TVNote.layer.borderWidth = 2.0f;
+    self.VNote.layer.borderWidth = 2.0f;
     
     if (self.entry) {
         self.title = [self.date.dateFormatter stringFromDate:self.entry.date];
