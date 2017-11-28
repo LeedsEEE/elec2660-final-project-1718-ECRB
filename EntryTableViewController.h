@@ -11,10 +11,13 @@
 #import "EntryViewController.h"
 #import "Date.h"
 #import "DetailViewController.h"
+#import "DataModel.h"
 
 @interface EntryTableViewController : UITableViewController
 
-@property (strong, nonatomic) Subject *data;
+@property (strong, nonatomic) NSString *subjectID;
+@property (strong, nonatomic) Subject *subject;
+@property (strong, nonatomic) DataModel *data;
 @property (strong, nonatomic) Date *date;
 
 @end

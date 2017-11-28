@@ -15,14 +15,14 @@
     self = [super init];
     if (self) {
         
-        self.subjects = [NSMutableArray array];
+        self.subjects = [[NSMutableDictionary alloc] init];
         
         Subject *testSubject = [[Subject alloc] init];
         testSubject.title = @"Test";
         testSubject.startDate = [NSDate date];
         testSubject.finishDate = [NSDate date];
         
-        [self.subjects addObject:testSubject];  // Create a test subject
+        self.subjects[@"testSubject"] = testSubject;  // Create a test subject
         
     }
     return self;

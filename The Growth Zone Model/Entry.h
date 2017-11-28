@@ -17,5 +17,6 @@
 @property int comfortArea;
 @property int growthArea;
 @property int anxietyArea;
+@property int subjectID;
 
 @end

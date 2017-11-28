@@ -17,8 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[Subject alloc] init]; //Initialise DataModel
+    self.data = [[DataModel alloc] init]; //Initialise DataModel
     self.date = [[Date alloc] init];    //Initialise local DateFormatter
+    
+    NSLog(@"%@",self.subjectID);
+    
+    if (self.subjectID) {
+        self.subject = [self.data.subjects objectForKey:self.subjectID];
+        
+        
+        
+    } else {
+        NSLog(@"No subjectID");
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,8 +51,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (self.data) {
-        return self.data.entrys.count;
+    if (self.subject) {
+        return self.subject.entrys.count;
     } else {
         return 0;
     }
@@ -51,7 +62,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell" forIndexPath:indexPath];
     
-    Entry *tempEntry = [self.data.entrys objectAtIndex:indexPath.row];
+    Entry *tempEntry = [self.subject.entrys objectAtIndex:indexPath.row];
     cell.textLabel.text = [self.date.dateFormatter stringFromDate:tempEntry.date];
     
     return cell;
@@ -104,7 +115,7 @@
         EntryViewController *destinationViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        Entry *tempEntry = [self.data.entrys objectAtIndex:indexPath.row];
+        Entry *tempEntry = [self.subject.entrys objectAtIndex:indexPath.row];
         destinationViewController.entry = tempEntry;
 
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden

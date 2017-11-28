@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Subject.h"
+#import "Entry.h"
 
 @interface DataModel : NSObject
 
-@property (strong, nonatomic) NSMutableArray *subjects;
+@property (strong, nonatomic) NSMutableDictionary *subjects;
 
 @end

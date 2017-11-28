@@ -43,9 +43,11 @@
 
 - (void)insertNewObject:(id)sender {
     if (!self.data.subjects) {
-        self.data.subjects = [[NSMutableArray alloc] init];
+        NSLog(@"No Subjects in DataModel");
     }
-    [self.data.subjects insertObject:[NSDate date] atIndex:0];
+    
+#warning setup New subject
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -60,8 +62,10 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        Subject *tempSubject = [self.data.subjects objectAtIndex:indexPath.row];
-        detailViewController.subject = tempSubject;
+        NSArray *getkeys = [self.data.subjects allKeys];
+        NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
+        
+        detailViewController.subjectID = subjectID;
         
         detailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         detailViewController.navigationItem.leftItemsSupplementBackButton = YES;
@@ -85,9 +89,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell" forIndexPath:indexPath];
     
-    Subject *tempSubject = [self.data.subjects objectAtIndex:indexPath.row];
+    NSArray *getkeys = [self.data.subjects allKeys];
+    NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = tempSubject.title;
+    cell.textLabel.text = subjectID;
     
     return cell;
 }
@@ -101,7 +106,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.data.subjects removeObjectAtIndex:indexPath.row];
+#warning add delete support
+        //[self.data.subjects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

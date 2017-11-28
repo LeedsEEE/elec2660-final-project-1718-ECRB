@@ -15,13 +15,17 @@
 @implementation DetailViewController
 
 - (void)configureView {
+
+    self.data = [[DataModel alloc] init];
     
     self.BTCreateEntry.layer.cornerRadius = 10.0f;
     self.TBPastEntries.layer.borderColor = [[UIColor grayColor]CGColor];
     self.TBPastEntries.layer.borderWidth = 3.0f;
 
-    
-    if (self.subject) {
+    if (self.subjectID) {
+        
+        self.subject = [self.data.subjects objectForKey:self.subjectID];
+        
         self.subjectNavigation.title = self.subject.title;
         
         self.date = [[Date alloc] init]; //Initiate local DateFormatter
@@ -49,6 +53,12 @@
     if ([[segue identifier] isEqualToString:@"showNewEntry"]) {
         
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden
+        
+    } else if ([[segue identifier] isEqualToString:@"embedTable"]) {
+        
+        EntryTableViewController *entryViewController = [segue destinationViewController];
+        
+        entryViewController.subjectID = self.subjectID;
         
     }
 }

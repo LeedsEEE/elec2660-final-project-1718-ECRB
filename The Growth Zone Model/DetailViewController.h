@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Subject.h"
 #import "Date.h"
+#import "DataModel.h"
+#import "EntryTableViewController.h"
+
+@class EntryTableViewController;
 
 @interface DetailViewController : UIViewController
 
@@ -23,6 +27,12 @@
 
 @property (strong, nonatomic) Subject *subject;
 
+@property (strong, nonatomic) NSString *subjectID;
+
 @property (strong, nonatomic) Date *date;
+
+@property (strong, nonatomic) DataModel *data;
+
+@property (strong, nonatomic) EntryTableViewController *entryViewController;
 
 @end

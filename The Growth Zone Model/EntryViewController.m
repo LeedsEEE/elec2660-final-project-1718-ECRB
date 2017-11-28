@@ -18,8 +18,6 @@
     [super viewDidLoad];
     
     self.date = [[Date alloc] init]; //Set the date of the entry as the current date
-
-    
     
     if (self.entry) { //Input saved entry data to UI
         self.title = [self.date.dateFormatter stringFromDate:self.entry.date]; //Set title to relevant Entry date
