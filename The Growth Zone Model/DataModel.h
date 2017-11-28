@@ -17,6 +17,6 @@
 
 @property (strong, nonatomic) NSString *filePath;
 
-
+- (void)save:(NSMutableDictionary *)dict;
 
 @end

@@ -26,10 +26,12 @@
         
         self.subject = [self.data.subjects objectForKey:self.subjectID];
         
-        self.subjectNavigation.title = self.subject.title;
+        NSLog(@"%@",self.subject);
+        
+        self.subjectNavigation.title = [self.subject objectForKey:@"title"];
         
         self.date = [[Date alloc] init]; //Initiate local DateFormatter
-        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [self.date.dateFormatter stringFromDate:self.subject.startDate], [self.date.dateFormatter stringFromDate:self.subject.finishDate]];
+        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [self.date.dateFormatter stringFromDate:[self.subject objectForKey:@"startDate"]], [self.date.dateFormatter stringFromDate:[self.subject objectForKey:@"finishDate"]]];
     
         
     }

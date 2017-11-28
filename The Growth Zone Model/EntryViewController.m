@@ -18,13 +18,18 @@
     [super viewDidLoad];
     
     self.date = [[Date alloc] init]; //Set the date of the entry as the current date
+    self.data = [[DataModel alloc] init];
     
-    if (self.entry) { //Input saved entry data to UI
-        self.title = [self.date.dateFormatter stringFromDate:self.entry.date]; //Set title to relevant Entry date
-        self.TVNote.text = self.entry.note;                                    //Set text field to relevant entry data
-        self.LBComfortPercentage.text = [NSString stringWithFormat:@"%d%%", self.entry.comfortArea]; //Format and set the
-        self.LBGrowthPercentage.text = [NSString stringWithFormat:@"%d%%", self.entry.growthArea];   //percentages to the
-        self.LBAnxietyPercentage.text = [NSString stringWithFormat:@"%d%%", self.entry.anxietyArea]; //relevant entry data
+    if (self.entryID) { //Input saved entry data to UI
+        
+        self.entry = self.data.subjects[self.subjectID][@"entrys"][self.entryID];   //Create a new dictionary of the entry to shortern code
+        
+        self.title = [self.date.dateFormatter stringFromDate:self.entry[@"title"]]; //Set title to relevant Entry date
+        
+        self.TVNote.text = self.entry[@"note"];                                    //Set text field to relevant entry data
+        self.LBComfortPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"comfortArea"]]; //Format and set the
+        self.LBGrowthPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"growthArea"]];   //percentages to the
+        self.LBAnxietyPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"anxietyArea"]]; //relevant entry data
         
     } else { // Set up data for a new entry
         
@@ -46,8 +51,16 @@
 }
 
 - (IBAction)saveAction:(id)sender {
-    if(self.entry){ //
-        self.entry.note = self.TVNote.text;
+    
+    self.entry[@"note"] = self.TVNote.text;
+    
+    
+    
+    if(self.entryID){
+        
+        self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
+        
+        [self.data save:self.data.subjects];
 
         #warning get area data
         //self.entry.comfortArea =
@@ -55,9 +68,9 @@
         //self.entry.anxietyArea =
         
     } else {
-        Entry *tempEntry = [[Entry alloc] init];
-        tempEntry.date = [NSDate date];
-        tempEntry.note = self.TVNote.text;
+        //Entry *tempEntry = [[Entry alloc] init];
+        //tempEntry.date = [NSDate date];
+        //tempEntry.note = self.TVNote.text;
         
         #warning get area data
         //tempEntry.comfortArea =

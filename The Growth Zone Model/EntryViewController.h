@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Entry.h"
 #import "Date.h"
+#import "DataModel.h"
 
 @interface EntryViewController : UIViewController
 
@@ -35,8 +35,12 @@
 @property (weak, nonatomic) IBOutlet UIStackView *SVNote;
 @property (weak, nonatomic) IBOutlet UITextView *TVNote;
 
-@property (strong, nonatomic) Entry *entry;
+@property (strong, nonatomic) NSMutableDictionary *entry;
 
 @property (strong, nonatomic) Date *date;
+@property (strong, nonatomic) DataModel *data;
+
+@property (strong, nonatomic) NSString *subjectID;
+@property (strong, nonatomic) NSString *entryID;
 
 @end

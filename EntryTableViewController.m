@@ -25,8 +25,6 @@
     if (self.subjectID) {
         self.subject = [self.data.subjects objectForKey:self.subjectID];
         
-        
-        
     } else {
         NSLog(@"No subjectID");
     }
@@ -52,18 +50,20 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (self.subject) {
-        return self.subject.entrys.count;
+        return [self.data.subjects[self.subjectID][@"entrys"] allKeys].count;
     } else {
         return 0;
     }
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell" forIndexPath:indexPath];
     
-    Entry *tempEntry = [self.subject.entrys objectAtIndex:indexPath.row];
-    cell.textLabel.text = [self.date.dateFormatter stringFromDate:tempEntry.date];
+    
+    NSArray *getkeys = [self.data.subjects[self.subjectID][@"entrys"] allKeys];
+    NSString *entryID = [getkeys objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = entryID;
     
     return cell;
 }
@@ -115,9 +115,12 @@
         EntryViewController *destinationViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        Entry *tempEntry = [self.subject.entrys objectAtIndex:indexPath.row];
-        destinationViewController.entry = tempEntry;
-
+        NSArray *getkeys = [self.data.subjects[self.subjectID][@"entrys"] allKeys];
+        NSString *entryID = [getkeys objectAtIndex:indexPath.row];
+        
+        destinationViewController.entryID = entryID;
+        destinationViewController.subjectID = self.subjectID;
+        
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden
         
     }

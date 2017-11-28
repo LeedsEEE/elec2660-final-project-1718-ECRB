@@ -25,7 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *TBPastEntries; //Unsure if Needed
 
-@property (strong, nonatomic) Subject *subject;
+@property (strong, nonatomic) NSMutableDictionary *subject;
 
 @property (strong, nonatomic) NSString *subjectID;
 

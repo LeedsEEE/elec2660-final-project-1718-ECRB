@@ -44,10 +44,12 @@
     return self;
 }
 
-- (void)save:(NSMutableDictionary *)dict;
+- (void)save:(NSMutableDictionary *)dict
 {
     
     NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+    
+    NSLog(@"Trying");
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) { //If there is no json file, create one
         [[NSFileManager defaultManager] createFileAtPath:self.filePath contents:nil attributes:nil];
