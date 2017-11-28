@@ -15,17 +15,58 @@
     self = [super init];
     if (self) {
         
-        self.subjects = [[NSMutableDictionary alloc] init];
+        self.filePath = @"Data.json";
         
-        Subject *testSubject = [[Subject alloc] init];
-        testSubject.title = @"Test";
-        testSubject.startDate = [NSDate date];
-        testSubject.finishDate = [NSDate date];
+        self.subjects = [self load];
         
-        self.subjects[@"testSubject"] = testSubject;  // Create a test subject
+        NSMutableDictionary *tempSubject = [[NSMutableDictionary alloc] init];
+        
+        NSMutableDictionary *entrys = [[NSMutableDictionary alloc] init];
+        
+        NSMutableDictionary *tempEntry = [[NSMutableDictionary alloc] init];
+        
+        tempEntry[@"title"] = @"EntryTitle";
+        tempEntry[@"note"] = @"This is a note";
+        tempEntry[@"anxietyArea"] = @(10);
+        
+        entrys[@"EntryID"] = tempEntry;
+        
+        tempSubject[@"entrys"] = entrys;
+        tempSubject[@"title"] = @"Test";
+        tempSubject[@"startDate"] = @"StartDate";
+        tempSubject[@"finishDate"] = @"FinishDate";
+        
+        self.subjects[@"testSubject"] = tempSubject;  // Create a test subject
+        
+        [self save:self.subjects];
         
     }
     return self;
 }
 
+- (void)save:(NSMutableDictionary *)dict;
+{
+    
+    NSData *json = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:nil];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) { //If there is no json file, create one
+        [[NSFileManager defaultManager] createFileAtPath:self.filePath contents:nil attributes:nil];
+    }
+    
+    [json writeToFile:self.filePath atomically:NO];
+    
+}
+
+- (NSMutableDictionary *)load
+{
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:self.filePath]) {
+        NSData *json = [[NSData alloc] initWithData:[NSData dataWithContentsOfFile:self.filePath]];
+        NSMutableDictionary *tempdict = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingMutableContainers error:nil];
+        if (tempdict){
+            dict = tempdict;
+        }
+    }
+    return dict;
+}
 @end

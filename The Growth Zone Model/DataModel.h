@@ -13,5 +13,10 @@
 @interface DataModel : NSObject
 
 @property (strong, nonatomic) NSMutableDictionary *subjects;
+@property (strong, nonatomic) NSData *json;
+
+@property (strong, nonatomic) NSString *filePath;
+
+
 
 @end

@@ -16,11 +16,12 @@
     if (self) {
         self.dateFormatter = [[NSDateFormatter alloc] init];
         
-        self.dateFormatter.dateStyle = NSDateFormatterShortStyle;
-        self.dateFormatter.timeStyle = NSDateFormatterNoStyle;
+        self.dateFormatter.dateStyle = NSDateFormatterShortStyle; //Short date style
+        self.dateFormatter.timeStyle = NSDateFormatterNoStyle;    //No time data
         
-        self.dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"];
-        [self.dateFormatter setLocalizedDateFormatFromTemplate:@"yMd"];
+        self.dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_GB"]; //Use the english date format
+        [self.dateFormatter setLocalizedDateFormatFromTemplate:@"yMd"];                   //Set the date to day month year
+//        [self.dateFormatter setDateFormat:@"dd"];                                         //Give the date as a string
         
     }
     return self;
