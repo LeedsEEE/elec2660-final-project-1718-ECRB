@@ -23,8 +23,7 @@
     NSLog(@"%@",self.subjectID);
     
     if (self.subjectID) {
-        self.subject = [self.data.subjects objectForKey:self.subjectID];
-        
+        self.subject = self.data.subjects[self.subjectID];
     } else {
         NSLog(@"No subjectID");
     }
@@ -41,6 +40,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.data.subjects = [self.data load];
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -48,7 +53,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     if (self.subject) {
         return [self.data.subjects[self.subjectID][@"entrys"] allKeys].count;
     } else {

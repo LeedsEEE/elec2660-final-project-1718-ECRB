@@ -17,6 +17,7 @@
 - (void)configureView {
 
     self.data = [[DataModel alloc] init];
+    self.date = [[Date alloc] init]; //Initiate local DateFormatter
     
     self.BTCreateEntry.layer.cornerRadius = 10.0f;
     self.TBPastEntries.layer.borderColor = [[UIColor grayColor]CGColor];
@@ -30,7 +31,6 @@
         
         self.subjectNavigation.title = [self.subject objectForKey:@"title"];
         
-        self.date = [[Date alloc] init]; //Initiate local DateFormatter
         self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [self.date.dateFormatter stringFromDate:[self.subject objectForKey:@"startDate"]], [self.date.dateFormatter stringFromDate:[self.subject objectForKey:@"finishDate"]]];
     
         
@@ -56,11 +56,15 @@
         
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden
         
-    } else if ([[segue identifier] isEqualToString:@"embedTable"]) {
-        
-        EntryTableViewController *entryViewController = [segue destinationViewController];
+        EntryViewController *entryViewController = [segue destinationViewController];
         
         entryViewController.subjectID = self.subjectID;
+        
+    } else if ([[segue identifier] isEqualToString:@"embedTable"]) {
+        
+        EntryTableViewController *entryTableViewController = [segue destinationViewController];
+        
+        entryTableViewController.subjectID = self.subjectID;
         
     }
 }

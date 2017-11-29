@@ -16,7 +16,7 @@
 @interface EntryTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *subjectID;
-@property (strong, nonatomic) Subject *subject;
+@property (strong, nonatomic) NSMutableDictionary *subject;
 @property (strong, nonatomic) DataModel *data;
 @property (strong, nonatomic) Date *date;
 

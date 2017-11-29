@@ -13,12 +13,12 @@
 		8C9023201FC47DBF00466BEF /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90231F1FC47DBF00466BEF /* MasterViewController.m */; };
 		8C9023231FC47DBF00466BEF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023221FC47DBF00466BEF /* DetailViewController.m */; };
 		8C9023261FC47DBF00466BEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9023241FC47DBF00466BEF /* Main.storyboard */; };
-		8C9023281FC47DBF00466BEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9023271FC47DBF00466BEF /* Assets.xcassets */; };
 		8C90232B1FC47DBF00466BEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */; };
 		8C9023361FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023351FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m */; };
 		8C9023411FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */; };
 		8C9023501FC480FF00466BEF /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* Subject.m */; };
 		8C9023531FC4811A00466BEF /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* Entry.m */; };
+		A53C85B21FCE080200A6F860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53C85B11FCE080200A6F860 /* Assets.xcassets */; };
 		A5DBD3641FC8D840000653BF /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD3631FC8D840000653BF /* Date.m */; };
 		A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36C1FC8E7C2000653BF /* EntryTableViewController.m */; };
 		A5DBD3701FC8E7DD000653BF /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36F1FC8E7DD000653BF /* EntryViewController.m */; };
@@ -53,7 +53,6 @@
 		8C9023211FC47DBF00466BEF /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		8C9023221FC47DBF00466BEF /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8C9023251FC47DBF00466BEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8C9023271FC47DBF00466BEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C90232A1FC47DBF00466BEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C90232C1FC47DBF00466BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C9023311FC47DBF00466BEF /* The Growth Zone ModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Growth Zone ModelTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +65,7 @@
 		8C90234F1FC480FF00466BEF /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subject.m; sourceTree = "<group>"; };
 		8C9023511FC4811900466BEF /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		8C9023521FC4811A00466BEF /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		A53C85B11FCE080200A6F860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5DBD3621FC8D840000653BF /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
 		A5DBD3631FC8D840000653BF /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		A5DBD36B1FC8E7C2000653BF /* EntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryTableViewController.h; path = ../EntryTableViewController.h; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 				8C9023511FC4811900466BEF /* Entry.h */,
 				8C9023521FC4811A00466BEF /* Entry.m */,
 				8C9023241FC47DBF00466BEF /* Main.storyboard */,
-				8C9023271FC47DBF00466BEF /* Assets.xcassets */,
+				A53C85B11FCE080200A6F860 /* Assets.xcassets */,
 				8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */,
 				8C90232C1FC47DBF00466BEF /* Info.plist */,
 				8C9023181FC47DBF00466BEF /* Supporting Files */,
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C90232B1FC47DBF00466BEF /* LaunchScreen.storyboard in Resources */,
-				8C9023281FC47DBF00466BEF /* Assets.xcassets in Resources */,
+				A53C85B21FCE080200A6F860 /* Assets.xcassets in Resources */,
 				8C9023261FC47DBF00466BEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

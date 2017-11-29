@@ -24,7 +24,7 @@
         
         self.entry = self.data.subjects[self.subjectID][@"entrys"][self.entryID];   //Create a new dictionary of the entry to shortern code
         
-        self.title = [self.date.dateFormatter stringFromDate:self.entry[@"title"]]; //Set title to relevant Entry date
+        self.title = self.entry[@"date"]; //Set title to relevant Entry date
         
         self.TVNote.text = self.entry[@"note"];                                    //Set text field to relevant entry data
         self.LBComfortPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"comfortArea"]]; //Format and set the
@@ -32,6 +32,8 @@
         self.LBAnxietyPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"anxietyArea"]]; //relevant entry data
         
     } else { // Set up data for a new entry
+        
+        self.entry = [[NSMutableDictionary alloc] init];
         
         self.title = @"New Entry";
     }
@@ -54,32 +56,49 @@
     
     self.entry[@"note"] = self.TVNote.text;
     
+#warning get area data
+    //tempEntry.comfortArea =
+    //tempEntry.growthArea =
+    //tempEntry.anxietyArea =
+    
+    //[subject.entrys addObject:tempEntry];
     
     
-    if(self.entryID){
+    
+    if(!self.entryID){
         
-        self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
+        NSDate *tempDate = [NSDate date];
         
-        [self.data save:self.data.subjects];
-
-        #warning get area data
-        //self.entry.comfortArea =
-        //self.entry.growthArea =
-        //self.entry.anxietyArea =
+        NSString *dateString = [self.date.dateFormatter stringFromDate:tempDate];
         
-    } else {
-        //Entry *tempEntry = [[Entry alloc] init];
-        //tempEntry.date = [NSDate date];
-        //tempEntry.note = self.TVNote.text;
+        self.entry[@"date"] = dateString;
         
-        #warning get area data
-        //tempEntry.comfortArea =
-        //tempEntry.growthArea =
-        //tempEntry.anxietyArea =
+        int suffix = 1;
         
-        //[subject.entrys addObject:tempEntry];
+        NSArray *getkeys = [self.data.subjects[self.subjectID][@"entrys"] allKeys];
+        NSString *tempID = [NSString stringWithFormat:@"%@",dateString];
         
+        while([getkeys containsObject:tempID])
+        {
+            tempID = [NSString stringWithFormat:@"%@_%d",dateString,suffix];
+            suffix++;
+        }
+        
+        self.entryID = tempID;
     }
+    
+    NSLog(@"%@ entryID",self.entryID);
+    NSLog(@"%@ entry",self.entry);
+    NSLog(@"%@ subjectID",self.subjectID);
+
+    self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
+    
+    NSLog(@"%@",self.data.subjects[self.subjectID][@"entrys"][self.entryID]);
+    
+    
+    [self.data save:self.data.subjects];
+    
+    NSLog(@"%@test",[self.data.subjects[self.subjectID][@"entrys"] allKeys]);
 }
 
 /*

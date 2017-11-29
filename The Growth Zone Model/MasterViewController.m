@@ -42,11 +42,10 @@
 
 
 - (void)insertNewObject:(id)sender {
-    if (!self.data.subjects) {
-        NSLog(@"No Subjects in DataModel");
-    }
     
 #warning setup New subject
+    
+    
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
