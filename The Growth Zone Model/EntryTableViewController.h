@@ -17,7 +17,9 @@
 
 @property (strong, nonatomic) NSString *subjectID;
 @property (strong, nonatomic) NSMutableDictionary *subject;
+@property (strong, nonatomic) NSArray *sortedKeys;
 @property (strong, nonatomic) DataModel *data;
 @property (strong, nonatomic) Date *date;
+
 
 @end

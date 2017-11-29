@@ -42,6 +42,13 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.data.subjects = [self.data load];
+    
+    self.sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        return [a compare:b];
+    }];
+    
+    NSLog(@"SortedKeys%@",self.sortedKeys);
+    
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
