@@ -27,11 +27,14 @@
         
         self.subject = self.data.subjects[self.subjectID];
         
-        NSLog(@"%@",self.subject);
+        self.subjectNavigation.title = self.subject[@"title"];
         
-        self.subjectNavigation.title = [self.subject objectForKey:@"title"];
+        NSArray *sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            return [b compare:a];
+        }]; //Sort the entry ID keys alphanumeric
         
-        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", self.subject[@"startDate"], self.subject[@"finishDate"]];
+        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
+        //Input the first and last date from the sorted keys, and remove any increment on the dates
         
     }
 }

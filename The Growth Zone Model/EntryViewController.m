@@ -86,7 +86,6 @@
     }
 
     self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
-    self.data.subjects[self.subjectID][@"finishDate"] = self.entry[@"date"];
     [self.data save:self.data.subjects];
 }
 
