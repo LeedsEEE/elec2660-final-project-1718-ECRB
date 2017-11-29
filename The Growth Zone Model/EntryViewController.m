@@ -24,7 +24,7 @@
         
         self.entry = self.data.subjects[self.subjectID][@"entrys"][self.entryID];   //Create a new dictionary of the entry to shortern code
         
-        self.title = self.entry[@"date"]; //Set title to relevant Entry date
+        self.title = self.entryID; //Set title to relevant Entry ID
         
         self.TVNote.text = self.entry[@"note"];                                    //Set text field to relevant entry data
         self.LBComfortPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"comfortArea"]]; //Format and set the
@@ -63,8 +63,6 @@
     
     //[subject.entrys addObject:tempEntry];
     
-    
-    
     if(!self.entryID){
         
         NSDate *tempDate = [NSDate date];
@@ -86,19 +84,10 @@
         
         self.entryID = tempID;
     }
-    
-    NSLog(@"%@ entryID",self.entryID);
-    NSLog(@"%@ entry",self.entry);
-    NSLog(@"%@ subjectID",self.subjectID);
 
     self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
-    
-    NSLog(@"%@",self.data.subjects[self.subjectID][@"entrys"][self.entryID]);
-    
-    
+    self.data.subjects[self.subjectID][@"finishDate"] = self.entry[@"date"];
     [self.data save:self.data.subjects];
-    
-    NSLog(@"%@test",[self.data.subjects[self.subjectID][@"entrys"] allKeys]);
 }
 
 /*

@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Subject.h"
 #import "Entry.h"
+#import "Date.h"
 
 @interface DataModel : NSObject
 
 @property (strong, nonatomic) NSMutableDictionary *subjects;
-@property (strong, nonatomic) NSData *json;
+@property (strong, nonatomic) Date *date;
 
 @property (strong, nonatomic) NSString *filePath;
 

@@ -25,14 +25,13 @@
 
     if (self.subjectID) {
         
-        self.subject = [self.data.subjects objectForKey:self.subjectID];
+        self.subject = self.data.subjects[self.subjectID];
         
         NSLog(@"%@",self.subject);
         
         self.subjectNavigation.title = [self.subject objectForKey:@"title"];
         
-        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [self.date.dateFormatter stringFromDate:[self.subject objectForKey:@"startDate"]], [self.date.dateFormatter stringFromDate:[self.subject objectForKey:@"finishDate"]]];
-    
+        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", self.subject[@"startDate"], self.subject[@"finishDate"]];
         
     }
 }

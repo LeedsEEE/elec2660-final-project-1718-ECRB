@@ -16,10 +16,16 @@
     if (self) {
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        self.date = [[Date alloc] init];
         
         self.filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Data.out"];
         
         self.subjects = [self load];
+        
+        if(!self.subjects)
+        {
+            self.subjects = [[NSMutableDictionary alloc] init];
+        }
         
         if ([self.subjects count] == 0)
         {
@@ -32,8 +38,12 @@
             tempEntry[@"title"] = @"EntryTitle";
             tempEntry[@"note"] = @"This is a note";
             tempEntry[@"anxietyArea"] = @(10);
+            
+            NSString *tempID = [self.date.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:100]];
+            NSLog(@"%@",tempID);
+            
         
-            entrys[@"EntryID"] = tempEntry;
+            entrys[tempID] = tempEntry;
         
             tempSubject[@"entrys"] = entrys;
             tempSubject[@"title"] = @"Test";

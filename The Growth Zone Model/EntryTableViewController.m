@@ -44,10 +44,8 @@
     self.data.subjects = [self.data load];
     
     self.sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        return [a compare:b];
+        return [b compare:a];
     }];
-    
-    NSLog(@"SortedKeys%@",self.sortedKeys);
     
     [super viewWillAppear:animated];
     [self.tableView reloadData];
@@ -70,9 +68,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell" forIndexPath:indexPath];
     
-    
-    NSArray *getkeys = [self.data.subjects[self.subjectID][@"entrys"] allKeys];
-    NSString *entryID = [getkeys objectAtIndex:indexPath.row];
+    NSString *entryID = [self.sortedKeys objectAtIndex:indexPath.row];
     
     cell.textLabel.text = entryID;
     
