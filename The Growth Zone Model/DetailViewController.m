@@ -42,6 +42,13 @@
     [self configureView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.data.subjects = [self.data load];
+
+    [super viewWillAppear:animated];
+    [self viewDidLoad];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
