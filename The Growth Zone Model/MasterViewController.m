@@ -26,7 +26,9 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-}
+    
+    }
+
 
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,9 +48,32 @@
 #warning setup New subject
     
     
+    UIAlertController *popUp = [UIAlertController alertControllerWithTitle:@"New Subject" message:@"Please enter your subject title" preferredStyle:UIAlertControllerStyleAlert];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [popUp addTextFieldWithConfigurationHandler:^(UITextField *_Nonnull subjectTitle){
+        subjectTitle.placeholder = @"Subject Title";
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
+    [popUp addAction:cancel];
+    
+    
+    UIAlertAction *create = [UIAlertAction actionWithTitle:@"Create Subject" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *subjectCreated){
+        self.data.subjects[[[popUp textFields][0] text]] = [[NSMutableDictionary alloc] init];
+        
+        [self.data.subjects[@"keyArray"] addObject:[[popUp textFields][0] text]];
+        
+        [self.data save:self.data.subjects];
+        
+        [self.tableView reloadData];
+        [self viewDidLoad];
+        
+        //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+    [popUp addAction:create];
+    
+    [self presentViewController:popUp animated:YES completion:nil];
+
 }
 
 
@@ -61,10 +86,10 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        NSArray *getkeys = [self.data.subjects allKeys];
-        NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
+        //NSArray *getkeys = [self.data.subjects allKeys];
+        //NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
         
-        detailViewController.subjectID = subjectID;
+        detailViewController.subjectID = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row];
         
         detailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         detailViewController.navigationItem.leftItemsSupplementBackButton = YES;
@@ -81,17 +106,19 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.data.subjects.count;
+    return (self.data.subjects.count - 1);
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubjectCell" forIndexPath:indexPath];
     
-    NSArray *getkeys = [self.data.subjects allKeys];
-    NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
+    //NSArray *getkeys = [self.data.subjects allKeys];
+    //NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = subjectID;
+    
+    
+    cell.textLabel.text = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -109,6 +136,9 @@
         //[self.data.subjects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+    
+        
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }

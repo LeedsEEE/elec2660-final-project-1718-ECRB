@@ -51,6 +51,11 @@
             tempSubject[@"finishDate"] = @"FinishDate";
         
             self.subjects[@"testSubject"] = tempSubject;  // Create a test subject
+            
+            NSMutableArray *keyArray = [[NSMutableArray alloc] init];
+            [keyArray addObject:@"testSubject"];
+            
+            self.subjects[@"keyArray"] = keyArray;
         
             [self save:self.subjects];
         }
