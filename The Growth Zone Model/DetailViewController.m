@@ -33,7 +33,9 @@
             return [b compare:a];
         }]; //Sort the entry ID keys alphanumeric
         
-        self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
+        if(sortedKeys.count){
+            self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
+        }
         //Input the first and last date from the sorted keys, and remove any increment on the dates
         
     }

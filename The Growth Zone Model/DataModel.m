@@ -15,11 +15,24 @@
     self = [super init];
     if (self) {
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         self.date = [[Date alloc] init];
         
-        self.filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Data.out"];
+        self.subjectTemplate = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *entrys = [[NSMutableDictionary alloc] init];
+        self.subjectTemplate[@"entrys"] = entrys;
+        self.subjectTemplate[@"title"] = @"Template";
+        self.subjectTemplate[@"startDate"] = @"StartDate";
+        self.subjectTemplate[@"finishDate"] = @"FinishDate";
         
+        /*self.entryTemplate = [[NSMutableDictionary alloc] init];
+        self.entryTemplate[@"title"] = @"Template";
+        self.entryTemplate[@"note"] = @"This is a note";
+        self.entryTemplate[@"anxietyArea"] = @(10);
+        */
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        self.filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Data.out"];
+
         self.subjects = [self load];
         
         if(!self.subjects)

@@ -14,6 +14,8 @@
 @interface DataModel : NSObject
 
 @property (strong, nonatomic) NSMutableDictionary *subjects;
+@property (strong, nonatomic) NSMutableDictionary *subjectTemplate;
+@property (strong, nonatomic) NSMutableDictionary *entryTemplate;
 @property (strong, nonatomic) Date *date;
 
 @property (strong, nonatomic) NSString *filePath;

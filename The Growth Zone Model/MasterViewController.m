@@ -58,17 +58,24 @@
     
     
     UIAlertAction *create = [UIAlertAction actionWithTitle:@"Create Subject" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *subjectCreated){
-        self.data.subjects[[[popUp textFields][0] text]] = [[NSMutableDictionary alloc] init];
         
-        [self.data.subjects[@"keyArray"] addObject:[[popUp textFields][0] text]];
+        NSString *subjectName = [[popUp textFields][0] text];
         
-        [self.data save:self.data.subjects];
+        if ([self.data.subjects[@"keyArray"] containsObject:subjectName]){
+            UIAlertController *invalidTitle = [UIAlertController alertControllerWithTitle:@"Warning" message:@"You cannot have two subjects with the same title\nPlease use a different subject title" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:nil];
+            [invalidTitle addAction:ok];
+            
+            [self presentViewController:invalidTitle animated:YES completion:nil];
+        } else {
+            self.data.subjects[subjectName] = [self.data.subjectTemplate mutableCopy];
+            [self.data.subjects[@"keyArray"] insertObject:subjectName atIndex:0];
+            [self.data save:self.data.subjects];
+            [self.tableView reloadData];
+            [self viewDidLoad];
+        }
         
-        [self.tableView reloadData];
-        [self viewDidLoad];
-        
-        //NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        //[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
     [popUp addAction:create];
     
