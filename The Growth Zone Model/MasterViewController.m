@@ -139,14 +139,29 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-#warning add delete support
-        //[self.data.subjects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        NSString *subjectKey = self.data.subjects[@"keyArray"][indexPath.row];
+        NSString *warningMessage = [NSString stringWithFormat:@"Are you sure you want to delete %@",subjectKey];
+        
+        UIAlertController *deleteWarning = [UIAlertController alertControllerWithTitle:@"Warning" message:warningMessage preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *objectDeleted){
+            [self.data.subjects removeObjectForKey:subjectKey];
+            [self.data.subjects[@"keyArray"] removeObjectAtIndex:indexPath.row];
+            
+            [self.data save:self.data.subjects];
+            [self.tableView reloadData];
+            [self viewDidLoad];
+        }];
+        [deleteWarning addAction:yes];
+        
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+        [deleteWarning addAction:cancel];
+        
+        [self presentViewController:deleteWarning animated:YES completion:nil];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         
-    
-        
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
 
