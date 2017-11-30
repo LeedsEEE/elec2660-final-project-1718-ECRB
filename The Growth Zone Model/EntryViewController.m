@@ -87,6 +87,7 @@
 
     self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
     [self.data save:self.data.subjects];
+    [[self navigationController] popViewControllerAnimated:YES];
 }
 
 /*
