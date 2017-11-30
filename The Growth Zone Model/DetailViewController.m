@@ -25,9 +25,11 @@
 
     if (self.subjectID) {
         
+        self.view.userInteractionEnabled = YES;
+        
         self.subject = self.data.subjects[self.subjectID];
         
-        self.subjectNavigation.title = self.subject[@"title"];
+        self.title = self.subjectID;
         
         NSArray *sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
             return [b compare:a];
@@ -38,6 +40,18 @@
         }
         //Input the first and last date from the sorted keys, and remove any increment on the dates
         
+    } else {
+        self.view.userInteractionEnabled = NO;
+        self.title = @"";
+        
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
+        blurView.frame = self.view.bounds;
+        blurView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        
+        self.overlayView.hidden = NO;
+
+        [self.view insertSubview:blurView atIndex:1];
     }
 }
 

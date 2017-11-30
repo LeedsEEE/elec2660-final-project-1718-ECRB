@@ -93,11 +93,26 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HyD-7W-10t">
+                                <rect key="frame" x="214" y="123" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Select a Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1p-D6-nAE">
+                                        <rect key="frame" x="5" y="50" width="229.5" height="26.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CuX-fc-khS" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="5" id="N4E-ua-Quz"/>
+                            <constraint firstItem="CuX-fc-khS" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="5" id="4m4-fd-38A"/>
+                            <constraint firstItem="HyD-7W-10t" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="DfS-7T-wmi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CuX-fc-khS" secondAttribute="trailing" constant="5" id="OAW-ow-gxK"/>
+                            <constraint firstItem="HyD-7W-10t" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="dcG-lq-qza"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="CuX-fc-khS" secondAttribute="bottom" constant="25" id="pib-mM-UP5"/>
                             <constraint firstItem="CuX-fc-khS" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="120" id="qd4-a8-pyH"/>
                         </constraints>
@@ -109,6 +124,8 @@
                         <outlet property="LBDates" destination="1uq-Ll-lE2" id="qTX-BJ-eFr"/>
                         <outlet property="LBPastEntries" destination="NpQ-xZ-JHv" id="A6J-aO-KYi"/>
                         <outlet property="TBPastEntries" destination="aqp-MW-Wkk" id="5bV-w9-WlG"/>
+                        <outlet property="noSubject" destination="I1p-D6-nAE" id="1Pn-kC-CX8"/>
+                        <outlet property="overlayView" destination="HyD-7W-10t" id="M43-Gj-wBg"/>
                         <outlet property="subjectNavigation" destination="mOI-FS-AaM" id="IQh-iW-IHk"/>
                     </connections>
                 </viewController>

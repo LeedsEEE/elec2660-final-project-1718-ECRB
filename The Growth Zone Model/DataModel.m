@@ -20,7 +20,6 @@
         self.subjectTemplate = [[NSMutableDictionary alloc] init];
         NSMutableDictionary *entrys = [[NSMutableDictionary alloc] init];
         self.subjectTemplate[@"entrys"] = entrys;
-        self.subjectTemplate[@"title"] = @"Template";
         self.subjectTemplate[@"startDate"] = @"StartDate";
         self.subjectTemplate[@"finishDate"] = @"FinishDate";
         
@@ -59,7 +58,6 @@
             entrys[tempID] = tempEntry;
         
             tempSubject[@"entrys"] = entrys;
-            tempSubject[@"title"] = @"Test";
             tempSubject[@"startDate"] = @"StartDate";
             tempSubject[@"finishDate"] = @"FinishDate";
         

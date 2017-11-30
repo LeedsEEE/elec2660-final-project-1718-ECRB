@@ -81,7 +81,6 @@
             tempID = [NSString stringWithFormat:@"%@_%d",dateString,suffix];
             suffix++;
         }
-        
         self.entryID = tempID;
     }
 

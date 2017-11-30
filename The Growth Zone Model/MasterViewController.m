@@ -45,9 +45,6 @@
 
 - (void)insertNewObject:(id)sender {
     
-#warning setup New subject
-    
-    
     UIAlertController *popUp = [UIAlertController alertControllerWithTitle:@"New Subject" message:@"Please enter your subject title" preferredStyle:UIAlertControllerStyleAlert];
     
     [popUp addTextFieldWithConfigurationHandler:^(UITextField *_Nonnull subjectTitle){
@@ -74,6 +71,10 @@
             [self.data save:self.data.subjects];
             [self.tableView reloadData];
             [self viewDidLoad];
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+            self.detailViewController.subjectID = subjectName;
+            [self.detailViewController viewDidLoad];
+            
         }
         
     }];
@@ -152,6 +153,12 @@
             [self.data save:self.data.subjects];
             [self.tableView reloadData];
             [self viewDidLoad];
+            
+            if (self.detailViewController.subjectID == subjectKey){
+                self.detailViewController.subjectID = NULL;
+                [self.detailViewController viewDidLoad];
+            }
+            
         }];
         [deleteWarning addAction:yes];
         
