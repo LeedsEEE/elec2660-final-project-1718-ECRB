@@ -37,6 +37,8 @@
         
         if(sortedKeys.count){
             self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
+        } else {
+            self.LBDates.text = @"No Entries";
         }
         //Input the first and last date from the sorted keys, and remove any increment on the dates
         
