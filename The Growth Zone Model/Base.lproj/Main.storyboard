@@ -38,8 +38,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCZ-R9-sL4">
+                                <rect key="frame" x="25" y="84" width="617" height="123"/>
+                                <gestureRecognizers/>
+                            </glkView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CuX-fc-khS">
-                                <rect key="frame" x="25" y="184" width="617" height="166"/>
+                                <rect key="frame" x="25" y="227" width="617" height="123"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="20Y-w6-625">
                                         <rect key="frame" x="0.0" y="0.0" width="617" height="40"/>
@@ -67,10 +71,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Tzz-S5-CFn">
-                                        <rect key="frame" x="0.0" y="60" width="617" height="106"/>
+                                        <rect key="frame" x="0.0" y="60" width="617" height="63"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wam-vR-6X9">
-                                                <rect key="frame" x="0.0" y="0.0" width="299" height="106"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="299" height="63"/>
                                                 <color key="backgroundColor" red="0.47843137254901957" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" title="New Entry">
@@ -81,7 +85,7 @@
                                                 </connections>
                                             </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqp-MW-Wkk">
-                                                <rect key="frame" x="318" y="0.0" width="299" height="106"/>
+                                                <rect key="frame" x="318" y="0.0" width="299" height="63"/>
                                                 <connections>
                                                     <segue destination="lQV-Gh-dHD" kind="embed" identifier="embedTable" id="793-Ql-eHL"/>
                                                 </connections>
@@ -113,13 +117,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CuX-fc-khS" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="5" id="4m4-fd-38A"/>
+                            <constraint firstItem="CuX-fc-khS" firstAttribute="top" secondItem="TCZ-R9-sL4" secondAttribute="bottom" constant="20" id="5gX-QM-avf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HyD-7W-10t" secondAttribute="trailing" id="LAJ-75-zBO"/>
+                            <constraint firstItem="CuX-fc-khS" firstAttribute="height" secondItem="TCZ-R9-sL4" secondAttribute="height" id="NmN-sm-g4E"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CuX-fc-khS" secondAttribute="trailing" constant="5" id="OAW-ow-gxK"/>
                             <constraint firstItem="HyD-7W-10t" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="QTu-BP-uga"/>
                             <constraint firstItem="HyD-7W-10t" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="SM2-fa-mxQ"/>
+                            <constraint firstItem="TCZ-R9-sL4" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="20" id="Wpb-Q1-Brt"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="CuX-fc-khS" secondAttribute="bottom" constant="25" id="pib-mM-UP5"/>
-                            <constraint firstItem="CuX-fc-khS" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="120" id="qd4-a8-pyH"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="HyD-7W-10t" secondAttribute="bottom" id="tAp-b0-q9G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TCZ-R9-sL4" secondAttribute="trailing" constant="5" id="uD0-ht-lX3"/>
+                            <constraint firstItem="TCZ-R9-sL4" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="5" id="xYY-Dy-gO1"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -216,7 +224,7 @@
             <objects>
                 <tableViewController id="lQV-Gh-dHD" customClass="EntryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aXB-Or-l4s">
-                        <rect key="frame" x="0.0" y="0.0" width="299" height="106"/>
+                        <rect key="frame" x="0.0" y="0.0" width="299" height="63"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
