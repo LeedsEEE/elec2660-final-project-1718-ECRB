@@ -18,9 +18,9 @@
 
 @property (strong, nonatomic) DataModel *data;
 
-@property int anxietyRadius;
-@property int growthRadius;
-@property int comfortRadius;
+@property int anxietyArea;
+@property int growthArea;
+@property int comfortArea;
 
 @property int width;
 @property int height;

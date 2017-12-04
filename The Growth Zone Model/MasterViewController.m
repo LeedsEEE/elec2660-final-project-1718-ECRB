@@ -125,7 +125,6 @@
     //NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
     
     
-    
     cell.textLabel.text = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row];
     
     return cell;
