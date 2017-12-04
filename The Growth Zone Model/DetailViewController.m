@@ -34,7 +34,6 @@
         NSArray *sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
             return [b compare:a];
         }]; //Sort the entry ID keys alphanumeric
-        
         if(sortedKeys.count){
             self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
         } else {
@@ -53,7 +52,7 @@
         
         self.overlayView.hidden = NO;
 
-        [self.view insertSubview:blurView atIndex:1];
+        [self.view insertSubview:blurView atIndex:2];
     }
 }
 
@@ -87,7 +86,7 @@
         
         entryViewController.subjectID = self.subjectID;
         
-    } else if ([[segue identifier] isEqualToString:@"embedTable"]) {
+    } else if ([[segue identifier] isEqualToString:@"embed"]) {
         
         EntryTableViewController *entryTableViewController = [segue destinationViewController];
         

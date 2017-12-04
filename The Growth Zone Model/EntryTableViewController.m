@@ -20,8 +20,6 @@
     self.data = [[DataModel alloc] init]; //Initialise DataModel
     self.date = [[Date alloc] init];    //Initialise local DateFormatter
     
-    NSLog(@"%@",self.subjectID);
-    
     if (self.subjectID) {
         self.subject = self.data.subjects[self.subjectID];
     } else {

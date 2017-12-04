@@ -43,8 +43,7 @@
     self.VGrowth.layer.borderWidth = 2.0f;  //
     self.VAnxiety.layer.borderWidth = 2.0f; //
     self.VNote.layer.borderWidth = 2.0f;    //
-
-    
+    self.frame.layer.borderWidth = 2.0f;    //
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,6 +86,34 @@
     self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
     [self.data save:self.data.subjects];
     [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"embed"]) {
+
+        
+        EntryModelViewController *entryModelViewController = [segue destinationViewController];
+        
+        self.entryModelViewController2 = entryModelViewController;
+        
+        entryModelViewController.width = self.frame.bounds.size.width;
+        entryModelViewController.subjectID = self.subjectID;
+        
+        //int tempWidth = self.view.bounds.size.width - 310;
+        int tempHeight = self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - UIApplication.sharedApplication.statusBarFrame.size.height - 50;
+        entryModelViewController.width = tempHeight;
+        
+        /*if (tempWidth < tempHeight){
+            NSLog(@"Width");
+            entryModelViewController.width = tempWidth;
+        } else {
+            NSLog(@"Height");
+            entryModelViewController.width = tempHeight;
+        }*/
+        
+    }
 }
 
 /*

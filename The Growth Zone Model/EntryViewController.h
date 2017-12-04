@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Date.h"
 #import "DataModel.h"
+#import "EntryModelViewController.h"
+
+@class EntryModelViewController;
 
 @interface EntryViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *BTSave;
+
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
+
+@property (weak, nonatomic) IBOutlet UIView *frame;
 
 @property (weak, nonatomic) IBOutlet UIStackView *SVRight;
 
@@ -42,5 +49,8 @@
 
 @property (strong, nonatomic) NSString *subjectID;
 @property (strong, nonatomic) NSString *entryID;
+
+@property (strong, nonatomic) EntryModelViewController *entryModelViewController2;
+@property int frameWidth;
 
 @end

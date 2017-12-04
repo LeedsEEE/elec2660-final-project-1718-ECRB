@@ -11,12 +11,13 @@
 #import "Date.h"
 #import "DataModel.h"
 #import "EntryTableViewController.h"
+#import <GLKit/GLKit.h>
 
 @class EntryTableViewController;
 
 @interface DetailViewController : UIViewController
-
 @property (weak, nonatomic) IBOutlet UINavigationItem *subjectNavigation;
+@property (weak, nonatomic) IBOutlet UIView *progressGraph;
 
 @property (weak, nonatomic) IBOutlet UILabel *LBDates;
 @property (weak, nonatomic) IBOutlet UILabel *LBPastEntries;

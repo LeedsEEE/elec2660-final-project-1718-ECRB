@@ -19,6 +19,11 @@
 		8C9023501FC480FF00466BEF /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* Subject.m */; };
 		8C9023531FC4811A00466BEF /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* Entry.m */; };
 		A53C85B21FCE080200A6F860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53C85B11FCE080200A6F860 /* Assets.xcassets */; };
+		A53C85C41FD1845000A6F860 /* ProgressGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53C85C31FD1845000A6F860 /* ProgressGraphViewController.m */; };
+		A53C85C61FD1867E00A6F860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C85C51FD1867E00A6F860 /* UIKit.framework */; };
+		A53C85C81FD1868600A6F860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C85C71FD1868600A6F860 /* CoreGraphics.framework */; };
+		A53C85CA1FD1868D00A6F860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C85C91FD1868D00A6F860 /* Foundation.framework */; };
+		A56B96E21FD586F500DBDB87 /* EntryModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56B96E11FD586F500DBDB87 /* EntryModelViewController.m */; };
 		A5DBD3641FC8D840000653BF /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD3631FC8D840000653BF /* Date.m */; };
 		A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36C1FC8E7C2000653BF /* EntryTableViewController.m */; };
 		A5DBD3701FC8E7DD000653BF /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD36F1FC8E7DD000653BF /* EntryViewController.m */; };
@@ -66,6 +71,14 @@
 		8C9023511FC4811900466BEF /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
 		8C9023521FC4811A00466BEF /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		A53C85B11FCE080200A6F860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A53C85B71FD0BDEF00A6F860 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A53C85C21FD1845000A6F860 /* ProgressGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressGraphViewController.h; sourceTree = "<group>"; };
+		A53C85C31FD1845000A6F860 /* ProgressGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressGraphViewController.m; sourceTree = "<group>"; };
+		A53C85C51FD1867E00A6F860 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A53C85C71FD1868600A6F860 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A53C85C91FD1868D00A6F860 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A56B96E01FD586F500DBDB87 /* EntryModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryModelViewController.h; sourceTree = "<group>"; };
+		A56B96E11FD586F500DBDB87 /* EntryModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryModelViewController.m; sourceTree = "<group>"; };
 		A5DBD3621FC8D840000653BF /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
 		A5DBD3631FC8D840000653BF /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
 		A5DBD36B1FC8E7C2000653BF /* EntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTableViewController.h; sourceTree = "<group>"; };
@@ -79,6 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53C85CA1FD1868D00A6F860 /* Foundation.framework in Frameworks */,
+				A53C85C81FD1868600A6F860 /* CoreGraphics.framework in Frameworks */,
+				A53C85C61FD1867E00A6F860 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +122,7 @@
 				8C9023341FC47DBF00466BEF /* The Growth Zone ModelTests */,
 				8C90233F1FC47DBF00466BEF /* The Growth Zone ModelUITests */,
 				8C9023161FC47DBF00466BEF /* Products */,
+				A53C85B61FD0BDEF00A6F860 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,10 +145,14 @@
 				8C90231F1FC47DBF00466BEF /* MasterViewController.m */,
 				8C9023211FC47DBF00466BEF /* DetailViewController.h */,
 				8C9023221FC47DBF00466BEF /* DetailViewController.m */,
+				A53C85C21FD1845000A6F860 /* ProgressGraphViewController.h */,
+				A53C85C31FD1845000A6F860 /* ProgressGraphViewController.m */,
 				A5DBD36B1FC8E7C2000653BF /* EntryTableViewController.h */,
 				A5DBD36C1FC8E7C2000653BF /* EntryTableViewController.m */,
 				A5DBD36E1FC8E7DD000653BF /* EntryViewController.h */,
 				A5DBD36F1FC8E7DD000653BF /* EntryViewController.m */,
+				A56B96E01FD586F500DBDB87 /* EntryModelViewController.h */,
+				A56B96E11FD586F500DBDB87 /* EntryModelViewController.m */,
 				A5DBD3621FC8D840000653BF /* Date.h */,
 				A5DBD3631FC8D840000653BF /* Date.m */,
 				8C49490E1FC7444300F47F14 /* DataModel.h */,
@@ -173,6 +194,17 @@
 				8C9023421FC47DBF00466BEF /* Info.plist */,
 			);
 			path = "The Growth Zone ModelUITests";
+			sourceTree = "<group>";
+		};
+		A53C85B61FD0BDEF00A6F860 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A53C85C91FD1868D00A6F860 /* Foundation.framework */,
+				A53C85C71FD1868600A6F860 /* CoreGraphics.framework */,
+				A53C85C51FD1867E00A6F860 /* UIKit.framework */,
+				A53C85B71FD0BDEF00A6F860 /* GLKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +347,8 @@
 				8C4949101FC7444300F47F14 /* DataModel.m in Sources */,
 				A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */,
 				8C90231A1FC47DBF00466BEF /* main.m in Sources */,
+				A56B96E21FD586F500DBDB87 /* EntryModelViewController.m in Sources */,
+				A53C85C41FD1845000A6F860 /* ProgressGraphViewController.m in Sources */,
 				A5DBD3701FC8E7DD000653BF /* EntryViewController.m in Sources */,
 				8C9023231FC47DBF00466BEF /* DetailViewController.m in Sources */,
 				A5DBD3641FC8D840000653BF /* Date.m in Sources */,

@@ -49,13 +49,35 @@
         
             tempEntry[@"title"] = @"EntryTitle";
             tempEntry[@"note"] = @"This is a note";
+            tempEntry[@"comfortArea"] = @(40);
+            tempEntry[@"growthArea"] = @(20);
             tempEntry[@"anxietyArea"] = @(10);
             
             NSString *tempID = [self.date.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:100]];
-            NSLog(@"%@",tempID);
             
+            NSMutableDictionary *temp2Entry = [[NSMutableDictionary alloc] init];
+            
+            tempEntry[@"title"] = @"EntryTitle";
+            tempEntry[@"note"] = @"This is a note";
+            tempEntry[@"comfortArea"] = @(50);
+            tempEntry[@"growthArea"] = @(30);
+            tempEntry[@"anxietyArea"] = @(20);
+            
+            NSString *tempID2 = [self.date.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:100]];
+            
+            NSMutableDictionary *temp3Entry = [[NSMutableDictionary alloc] init];
+            
+            tempEntry[@"title"] = @"EntryTitle";
+            tempEntry[@"note"] = @"This is a note";
+            tempEntry[@"comfortArea"] = @(70);
+            tempEntry[@"growthArea"] = @(50);
+            tempEntry[@"anxietyArea"] = @(20);
+            
+            NSString *tempID3 = [self.date.dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceReferenceDate:100]];
         
             entrys[tempID] = tempEntry;
+            entrys[tempID2] = temp2Entry;
+            entrys[tempID3] = temp3Entry;
         
             tempSubject[@"entrys"] = entrys;
             tempSubject[@"startDate"] = @"StartDate";
