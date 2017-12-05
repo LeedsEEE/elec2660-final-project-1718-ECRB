@@ -36,9 +36,6 @@
         
         self.title = @"New Entry";
         
-        self.entry[@"anxietyRadius"] = @0.4;
-        self.entry[@"growthRadius"] = @0.3;
-        self.entry[@"comfortRadius"] = @0.2;
     }
     
     // UI CONFIGURATION

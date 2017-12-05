@@ -17,16 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.entryViewController viewDidLoad];
+    
     self.data = [[DataModel alloc] init];
     
-    self.entry = self.data.subjects[self.subjectID][@"entrys"][self.entryID];
+    //self.entry = self.data.subjects[self.subjectID][@"entrys"][self.entryID];
+    
+    self.entry = self.entryViewController.entry;
     
     self.radiusMultiplier = self.width - 12;
     
     self.tolerance = 0.005;
     
+    if (self.entry[@"anxietyRadius"] == NULL){
+        self.entry[@"anxietyRadius"] = [[NSNumber alloc] initWithFloat:0.4];
+        self.entry[@"growthRadius"] = [[NSNumber alloc] initWithFloat:0.3];
+        self.entry[@"comfortRadius"] = [[NSNumber alloc] initWithFloat:0.2];
+    }
+    
     [self updateCircles];
-        
     // Do any additional setup after loading the view.
 }
 
@@ -40,9 +49,9 @@
     [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:[self.entry[@"growthRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
     [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:[self.entry[@"comfortRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
     
-    int comfortArea = round(pow([self.entry[@"comfortRadius"] floatValue]*2,2) * 100);
-    int growthArea = round(pow([self.entry[@"growthRadius"] floatValue]*2,2) * 100) - comfortArea;
-    int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue]*2,2) * 100) - growthArea - comfortArea;
+    int comfortArea = round(pow(([self.entry[@"comfortRadius"] floatValue] + self.tolerance * 2) * 2,2) * 100);
+    int growthArea = round(pow(([self.entry[@"growthRadius"] floatValue] + self.tolerance) * 2,2) * 100) - comfortArea;
+    int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue] * 2,2) * 100) - growthArea - comfortArea;
     
     self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:anxietyArea];
     self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:growthArea];
