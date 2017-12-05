@@ -120,8 +120,7 @@
         EntryViewController *destinationViewController = [segue destinationViewController];
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
-        NSArray *getkeys = [self.data.subjects[self.subjectID][@"entrys"] allKeys];
-        NSString *entryID = [getkeys objectAtIndex:indexPath.row];
+        NSString *entryID = [self.sortedKeys objectAtIndex:indexPath.row];
         
         destinationViewController.entryID = entryID;
         destinationViewController.subjectID = self.subjectID;
