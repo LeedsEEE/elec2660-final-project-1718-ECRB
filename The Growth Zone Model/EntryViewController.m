@@ -27,7 +27,8 @@
         self.title = self.entryID; //Set title to relevant Entry ID
         
         self.TVNote.text = self.entry[@"note"];                                    //Set text field to relevant entry data
-        [self updateLabels_comfort:(int)self.entry[@"comfortArea"] growth:(int)self.entry[@"growthArea"] anxiety:(int)self.entry[@"anxietyArea"]];
+        
+        [self updateLabels_comfort:[self.entry[@"comfortArea"] intValue] growth:[self.entry[@"growthArea"] intValue] anxiety:[self.entry[@"anxietyArea"] intValue]];
         
     } else { // Set up data for a new entry
         

@@ -36,14 +36,12 @@
 
     [self.view addSubview:[self circleWithColor:[UIColor whiteColor] radius:0.5 * self.width - 4 posx:self.width/2 posy:self.width/2 border:2.0]];
     
-    NSLog(@"%@",self.entry[@"anxietyRadius"]);
-    
     [self.view addSubview:[self circleWithColor:[UIColor redColor] radius:[self.entry[@"anxietyRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
     [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:[self.entry[@"growthRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
     [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:[self.entry[@"comfortRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
     
-    int comfortArea = round(pow([self.entry[@"anxietyRadius"] floatValue]*2,2) * 100);
-    int growthArea = round(pow([self.entry[@"anxietyRadius"] floatValue]*2,2) * 100) - comfortArea;
+    int comfortArea = round(pow([self.entry[@"comfortRadius"] floatValue]*2,2) * 100);
+    int growthArea = round(pow([self.entry[@"growthRadius"] floatValue]*2,2) * 100) - comfortArea;
     int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue]*2,2) * 100) - growthArea - comfortArea;
     
     self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:anxietyArea];
@@ -77,9 +75,9 @@
         float stardRad = powf(powf(startCentered.x, 2)+powf(startCentered.y, 2), 0.5)/self.radiusMultiplier;
         float currentRad = powf(powf(currentCentered.x, 2)+powf(currentCentered.y, 2), 0.5)/self.radiusMultiplier;
 
-        float anxietyDiff = fabs((int)self.entry[@"anxietyRadius"] - stardRad);
-        float growthDiff = fabs((int)self.entry[@"growthRadius"] - stardRad);
-        float comfortDiff = fabs((int)self.entry[@"comfortRadius"] - stardRad);
+        float anxietyDiff = fabs([self.entry[@"anxietyRadius"] floatValue] - stardRad);
+        float growthDiff = fabs([self.entry[@"growthRadius"] floatValue] - stardRad);
+        float comfortDiff = fabs([self.entry[@"comfortRadius"] floatValue] - stardRad);
         
         if (self.selected) {
             [self radiusCheckForCircle:self.selected withRadius:currentRad];
