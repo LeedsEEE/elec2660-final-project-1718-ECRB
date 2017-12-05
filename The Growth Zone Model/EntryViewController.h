@@ -51,7 +51,9 @@
 @property (strong, nonatomic) NSString *subjectID;
 @property (strong, nonatomic) NSString *entryID;
 
-@property (strong, nonatomic) EntryModelViewController *entryModelViewController2;
+@property (strong, nonatomic) EntryModelViewController *entryModelViewController;
 @property int frameWidth;
+
+- (void)updateLabels_comfort:(int)comfort growth:(int)growth anxiety:(int)anxiety;
 
 @end

@@ -27,10 +27,7 @@
         self.title = self.entryID; //Set title to relevant Entry ID
         
         self.TVNote.text = self.entry[@"note"];                                    //Set text field to relevant entry data
-        self.LBComfortPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"comfortArea"]]; //Format and set the
-        self.LBGrowthPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"growthArea"]];   //percentages to the
-        self.LBAnxietyPercentage.text = [NSString stringWithFormat:@"%@%%", self.entry[@"anxietyArea"]]; //relevant entry data
-        
+        [self updateLabels_comfort:self.entry[@"comfortArea"] growth:self.entry[@"growthArea"] anxiety:self.entry[@"anxietyArea"]];
     } else { // Set up data for a new entry
         
         self.entry = [[NSMutableDictionary alloc] init];
@@ -46,6 +43,12 @@
     self.frame.layer.borderWidth = 2.0f;    //
 }
 
+- (void)updateLabels_comfort:(int)comfort growth:(int)growth anxiety:(int)anxiety {
+    self.LBComfortPercentage.text = [NSString stringWithFormat:@"%d%%", comfort]; //Format and set the
+    self.LBGrowthPercentage.text = [NSString stringWithFormat:@"%d%%", growth];   //percentages to the
+    self.LBAnxietyPercentage.text = [NSString stringWithFormat:@"%d%%", anxiety]; //relevant entry data
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,12 +58,9 @@
     
     self.entry[@"note"] = self.TVNote.text;
     
-#warning get area data
-    //tempEntry.comfortArea =
-    //tempEntry.growthArea =
-    //tempEntry.anxietyArea =
-    
-    //[subject.entrys addObject:tempEntry];
+    //self.entry[@"comfortArea"] =
+    //self.entry[@"growthArea"] =
+    //self.entry[@"anxietyArea"] =
     
     if(!self.entryID){
         
@@ -96,11 +96,17 @@
         
         EntryModelViewController *entryModelViewController = [segue destinationViewController];
         
-        self.entryModelViewController2 = entryModelViewController;
+        self.entryModelViewController = entryModelViewController;
         
         entryModelViewController.width = self.frame.bounds.size.width;
         entryModelViewController.subjectID = self.subjectID;
         entryModelViewController.entryID = self.entryID;
+        
+        entryModelViewController.anxietyRadius = 0.40;
+        entryModelViewController.growthRadius = 0.30;
+        entryModelViewController.comfortRadius = 0.20;
+        
+        entryModelViewController.entryViewController = self;
         
         float tempWidth = self.view.bounds.size.width - 310;
         float tempHeight = self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - UIApplication.sharedApplication.statusBarFrame.size.height - 50;
