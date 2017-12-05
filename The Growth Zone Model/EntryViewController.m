@@ -34,6 +34,10 @@
         self.entry = [[NSMutableDictionary alloc] init];
         
         self.title = @"New Entry";
+        
+        self.entry[@"anxietyRadius"] = @0.4;
+        self.entry[@"growthRadius"] = @0.3;
+        self.entry[@"comfortRadius"] = @0.2;
     }
     
     // UI CONFIGURATION
@@ -59,9 +63,9 @@
     
     self.entry[@"note"] = self.TVNote.text;
     
-    self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.comfortArea];
-    self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.growthArea];
-    self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.anxietyArea];
+    //self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.comfortArea];
+    //self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.growthArea];
+    //self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.anxietyArea];
     
     if(!self.entryID){
         
@@ -100,12 +104,9 @@
         self.entryModelViewController = entryModelViewController;
         
         entryModelViewController.width = self.frame.bounds.size.width;
+        
         entryModelViewController.subjectID = self.subjectID;
         entryModelViewController.entryID = self.entryID;
-        
-        entryModelViewController.anxietyRadius = 0.40;
-        entryModelViewController.growthRadius = 0.30;
-        entryModelViewController.comfortRadius = 0.20;
         
         entryModelViewController.entryViewController = self;
         

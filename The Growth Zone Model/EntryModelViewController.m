@@ -18,8 +18,9 @@
     [super viewDidLoad];
     
     self.data = [[DataModel alloc] init];
+    
     self.entry = self.data.subjects[self.subjectID][@"entrys"][self.entryID];
-
+    
     self.radiusMultiplier = self.width - 12;
     
     self.tolerance = 0.005;
@@ -35,19 +36,21 @@
 
     [self.view addSubview:[self circleWithColor:[UIColor whiteColor] radius:0.5 * self.width - 4 posx:self.width/2 posy:self.width/2 border:2.0]];
     
-    [self.view addSubview:[self circleWithColor:[UIColor redColor] radius:self.anxietyRadius * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
-    [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:self.growthRadius  * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
-    [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:self.comfortRadius * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    NSLog(@"%@",self.entry[@"anxietyRadius"]);
     
-    int comfortArea = round(pow(self.comfortRadius*2,2) * 100);
-    int growthArea = round(pow(self.growthRadius*2,2) * 100) - comfortArea;
-    int anxietyArea = round(pow(self.anxietyRadius*2,2) * 100) - growthArea - comfortArea;
+    [self.view addSubview:[self circleWithColor:[UIColor redColor] radius:[self.entry[@"anxietyRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:[self.entry[@"growthRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:[self.entry[@"comfortRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    
+    int comfortArea = round(pow([self.entry[@"anxietyRadius"] floatValue]*2,2) * 100);
+    int growthArea = round(pow([self.entry[@"anxietyRadius"] floatValue]*2,2) * 100) - comfortArea;
+    int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue]*2,2) * 100) - growthArea - comfortArea;
     
     self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:anxietyArea];
     self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:growthArea];
     self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:comfortArea];
     
-    [self.data save:self.data.subjects];
+    self.entryViewController.entry = self.entry;
     [self.entryViewController updateLabels_comfort:comfortArea growth:growthArea anxiety:anxietyArea];
 }
 
@@ -74,9 +77,9 @@
         float stardRad = powf(powf(startCentered.x, 2)+powf(startCentered.y, 2), 0.5)/self.radiusMultiplier;
         float currentRad = powf(powf(currentCentered.x, 2)+powf(currentCentered.y, 2), 0.5)/self.radiusMultiplier;
 
-        float anxietyDiff = fabs(self.anxietyRadius - stardRad);
-        float growthDiff = fabs(self.growthRadius - stardRad);
-        float comfortDiff = fabs(self.comfortRadius - stardRad);
+        float anxietyDiff = fabs((int)self.entry[@"anxietyRadius"] - stardRad);
+        float growthDiff = fabs((int)self.entry[@"growthRadius"] - stardRad);
+        float comfortDiff = fabs((int)self.entry[@"comfortRadius"] - stardRad);
         
         if (self.selected) {
             [self radiusCheckForCircle:self.selected withRadius:currentRad];
@@ -97,33 +100,41 @@
 }
 
 - (float)radiusCheckForCircle:(NSString *)circle withRadius:(float)radius {
+    
+    float tempRadius;
+    
     if ([circle  isEqual: @"anxiety"]){
         if (radius > 0.5){
-            self.anxietyRadius = 0.5;
-        } else if (radius > (self.growthRadius + self.tolerance)) {
-            self.anxietyRadius = radius;
+            tempRadius = 0.5;
+        } else if (radius > ([self.entry[@"growthRadius"] floatValue] + self.tolerance)) {
+            tempRadius = radius;
         } else {
-            self.anxietyRadius = [self radiusCheckForCircle: @"growth" withRadius:(radius-self.tolerance)] + self.tolerance;
+            tempRadius = [self radiusCheckForCircle: @"growth" withRadius:(radius-self.tolerance)] + self.tolerance;
         }
-        return self.anxietyRadius;
+        self.entry[@"anxietyRadius"] = [[NSNumber alloc] initWithFloat:tempRadius];
+        return tempRadius;
+        
     } else if ([circle  isEqual: @"growth"]){
-        if (radius > self.anxietyRadius - self.tolerance){
-            self.growthRadius = [self radiusCheckForCircle:@"anxiety" withRadius:radius + self.tolerance]  - self.tolerance;
-        } else if (radius > (self.comfortRadius + self.tolerance)) {
-            self.growthRadius = radius;
+        if (radius > [self.entry[@"anxietyRadius"] floatValue] - self.tolerance){
+            tempRadius = [self radiusCheckForCircle:@"anxiety" withRadius:radius + self.tolerance]  - self.tolerance;
+        } else if (radius > ([self.entry[@"comfortRadius"] floatValue] + self.tolerance)) {
+            tempRadius = radius;
         } else {
-            self.growthRadius = [self radiusCheckForCircle: @"comfort" withRadius:(radius-self.tolerance)]  + self.tolerance;
+            tempRadius = [self radiusCheckForCircle: @"comfort" withRadius:(radius-self.tolerance)]  + self.tolerance;
         }
-        return self.growthRadius;
+        self.entry[@"growthRadius"] = [[NSNumber alloc] initWithFloat:tempRadius];
+        return tempRadius;
+        
     } else if ([circle  isEqual: @"comfort"]){
-        if (radius > self.growthRadius - self.tolerance){
-            self.comfortRadius = [self radiusCheckForCircle:@"growth" withRadius:radius + self.tolerance]  - self.tolerance;
+        if (radius > [self.entry[@"growthRadius"] floatValue] - self.tolerance){
+            tempRadius = [self radiusCheckForCircle:@"growth" withRadius:radius + self.tolerance]  - self.tolerance;
         } else if (radius > self.tolerance) {
-            self.comfortRadius = radius;
+            tempRadius = radius;
         } else {
-            self.comfortRadius = self.tolerance;
+            tempRadius = self.tolerance;
         }
-        return self.comfortRadius;
+        self.entry[@"comfortRadius"] = [[NSNumber alloc] initWithFloat:tempRadius];
+        return tempRadius;
     } else {
         return 0.0;
     }
