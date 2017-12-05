@@ -27,7 +27,8 @@
         self.title = self.entryID; //Set title to relevant Entry ID
         
         self.TVNote.text = self.entry[@"note"];                                    //Set text field to relevant entry data
-        [self updateLabels_comfort:self.entry[@"comfortArea"] growth:self.entry[@"growthArea"] anxiety:self.entry[@"anxietyArea"]];
+        [self updateLabels_comfort:(int)self.entry[@"comfortArea"] growth:(int)self.entry[@"growthArea"] anxiety:(int)self.entry[@"anxietyArea"]];
+        
     } else { // Set up data for a new entry
         
         self.entry = [[NSMutableDictionary alloc] init];
@@ -58,9 +59,9 @@
     
     self.entry[@"note"] = self.TVNote.text;
     
-    //self.entry[@"comfortArea"] =
-    //self.entry[@"growthArea"] =
-    //self.entry[@"anxietyArea"] =
+    self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.comfortArea];
+    self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.growthArea];
+    self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.anxietyArea];
     
     if(!self.entryID){
         
