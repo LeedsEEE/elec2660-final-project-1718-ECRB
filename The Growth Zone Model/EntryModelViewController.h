@@ -11,7 +11,13 @@
 
 @interface EntryModelViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *pan;
+
 @property (strong, nonatomic) NSString *subjectID;
+@property (strong, nonatomic) NSString *entryID;
+
+@property (strong, nonatomic) NSMutableDictionary *entry;
+
 @property (strong, nonatomic) NSArray *modelArray;
 
 @property (strong, nonatomic) IBOutlet UIView *frame;
@@ -22,7 +28,6 @@
 @property int growthArea;
 @property int comfortArea;
 
-@property int width;
-@property int height;
+@property float width;
 
 @end

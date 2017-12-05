@@ -100,9 +100,10 @@
         
         entryModelViewController.width = self.frame.bounds.size.width;
         entryModelViewController.subjectID = self.subjectID;
+        entryModelViewController.entryID = self.entryID;
         
-        int tempWidth = self.view.bounds.size.width - 310;
-        int tempHeight = self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - UIApplication.sharedApplication.statusBarFrame.size.height - 50;
+        float tempWidth = self.view.bounds.size.width - 310;
+        float tempHeight = self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - UIApplication.sharedApplication.statusBarFrame.size.height - 50;
         
         if (tempWidth < tempHeight){
             NSLog(@"Width");
