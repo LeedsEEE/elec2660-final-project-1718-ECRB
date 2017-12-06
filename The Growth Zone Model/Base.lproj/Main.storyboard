@@ -142,7 +142,7 @@
                         <outlet property="TBPastEntries" destination="aqp-MW-Wkk" id="5bV-w9-WlG"/>
                         <outlet property="noSubject" destination="I1p-D6-nAE" id="1Pn-kC-CX8"/>
                         <outlet property="overlayView" destination="HyD-7W-10t" id="M43-Gj-wBg"/>
-                        <outlet property="progressGraph" destination="HyD-7W-10t" id="Yai-Td-DX8"/>
+                        <outlet property="progressGraph" destination="VK7-xh-KP4" id="GqZ-l4-fbf"/>
                         <outlet property="subjectNavigation" destination="mOI-FS-AaM" id="IQh-iW-IHk"/>
                     </connections>
                 </viewController>
@@ -161,7 +161,7 @@
                     <view key="view" contentMode="scaleToFill" id="Gob-o4-Ae0">
                         <rect key="frame" x="0.0" y="0.0" width="617" height="123"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLS-sg-N5d" userLabel="First Responder" sceneMemberID="firstResponder"/>

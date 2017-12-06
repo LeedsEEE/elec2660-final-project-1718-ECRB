@@ -21,7 +21,8 @@
     
     self.BTCreateEntry.layer.cornerRadius = 10.0f;
     self.TBPastEntries.layer.borderColor = [[UIColor grayColor]CGColor];
-    self.TBPastEntries.layer.borderWidth = 3.0f;
+    self.TBPastEntries.layer.borderWidth = 2.0f;
+    self.progressGraph.layer.borderWidth = 2.0f;
 
     if (self.subjectID) {
         
