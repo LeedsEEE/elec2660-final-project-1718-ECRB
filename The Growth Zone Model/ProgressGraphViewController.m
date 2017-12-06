@@ -22,9 +22,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    
-    [self viewDidLoad];
-    
+    [self drawGraph];
 }
 
 -(void)drawGraph{
