@@ -36,6 +36,6 @@
 
 @property (strong, nonatomic) DataModel *data;
 
-@property (strong, nonatomic) EntryTableViewController *entryViewController;
+@property (strong, nonatomic) EntryTableViewController *entryTableViewController;
 
 @end

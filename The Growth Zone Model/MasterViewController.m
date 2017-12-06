@@ -66,15 +66,18 @@
             
             [self presentViewController:invalidTitle animated:YES completion:nil];
         } else {
+            
+            self.data.subjects = [self.data load];
             self.data.subjects[subjectName] = [self.data.subjectTemplate mutableCopy];
             [self.data.subjects[@"keyArray"] insertObject:subjectName atIndex:0];
             [self.data save:self.data.subjects];
+            
             [self.tableView reloadData];
             [self viewDidLoad];
-            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-            self.detailViewController.subjectID = subjectName;
-            [self.detailViewController viewDidLoad];
             
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+            
+            [self performSegueWithIdentifier:@"showDetail" sender:self];
         }
         
     }];
@@ -86,8 +89,8 @@
 
 
 #pragma mark - Segues
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         
         DetailViewController *detailViewController = (DetailViewController *)[[segue destinationViewController] topViewController];

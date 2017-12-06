@@ -82,15 +82,15 @@
         
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden
         
-        EntryViewController *entryViewController = [segue destinationViewController];
+        self.entryTableViewController = [segue destinationViewController];
         
-        entryViewController.subjectID = self.subjectID;
+        self.entryTableViewController.subjectID = self.subjectID;
         
     } else if ([[segue identifier] isEqualToString:@"embed"]) {
         
-        EntryTableViewController *entryTableViewController = [segue destinationViewController];
+        self.entryTableViewController = [segue destinationViewController];
         
-        entryTableViewController.subjectID = self.subjectID;
+        self.entryTableViewController.subjectID = self.subjectID;
         
     }
 }
