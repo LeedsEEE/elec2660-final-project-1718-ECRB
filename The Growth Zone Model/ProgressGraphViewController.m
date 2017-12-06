@@ -27,16 +27,13 @@
     self.data = [[DataModel alloc] init];
     
     self.entrys = self.data.subjects[self.subjectID][@"entrys"];
-    
+
     self.sortedKeys = [[self.entrys allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        if ([a length] != [b length]) {
+        if (([a length] != [b length]) && ([a substringToIndex:9] == [b substringToIndex:9])) {
             return [[NSNumber numberWithInteger:[a length]] compare:[NSNumber numberWithInteger:[b length]]];
         } else {
             return [a compare:b];
         }}];
-    
-#warning above is incorect
-    
     
     NSLog(@"%@",self.sortedKeys);
     
