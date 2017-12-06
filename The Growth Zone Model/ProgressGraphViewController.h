@@ -14,6 +14,10 @@
 @property (strong, nonatomic) NSString *subjectID;
 @property (strong, nonatomic) NSArray *graphArray;
 
+@property (strong, nonatomic) NSMutableDictionary *entrys;
+
+@property (strong, nonatomic) NSArray *sortedKeys;
+
 @property (strong, nonatomic) DataModel *data;
 
 @end
