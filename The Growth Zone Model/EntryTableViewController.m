@@ -42,8 +42,11 @@
     self.data.subjects = [self.data load];
     
     self.sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        return [b compare:a];
-    }];
+        if (([a length] != [b length]) && ([a substringToIndex:9] == [b substringToIndex:9])) {
+            return [[NSNumber numberWithInteger:[a length]] compare:[NSNumber numberWithInteger:[b length]]];
+        } else {
+            return [a compare:b];
+    }}];
     
     [super viewWillAppear:animated];
     [self.tableView reloadData];

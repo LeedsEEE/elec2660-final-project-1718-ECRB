@@ -33,8 +33,12 @@
         self.title = self.subjectID;
         
         NSArray *sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-            return [b compare:a];
-        }]; //Sort the entry ID keys alphanumeric
+            if (([a length] != [b length]) && ([a substringToIndex:9] == [b substringToIndex:9])) {
+                return [[NSNumber numberWithInteger:[a length]] compare:[NSNumber numberWithInteger:[b length]]];
+            } else {
+                return [a compare:b];
+        }}];
+        
         if(sortedKeys.count){
             self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
         } else {

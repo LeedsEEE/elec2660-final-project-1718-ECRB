@@ -35,8 +35,6 @@
             return [a compare:b];
         }}];
     
-    NSLog(@"%@",self.sortedKeys);
-    
     [self drawGraphFromArray:[self dataArray]];
 }
 
