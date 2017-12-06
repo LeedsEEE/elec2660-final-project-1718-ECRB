@@ -21,7 +21,11 @@
     // Do any additional setup after loading the view.
 }
 
-
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [self viewDidLoad];
+    
+}
 
 -(void)drawGraph{
     self.data = [[DataModel alloc] init];
@@ -40,9 +44,9 @@
 
 - (void)drawGraphFromArray:(NSArray *)array {
     
-    float pixelWidth = self.view.bounds.size.width * (0.6 + 0.4 * [self.splitViewController preferredDisplayMode]) - 54;
-
-    float pixelHeight = (self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - UIApplication.sharedApplication.statusBarFrame.size.height - 75) / 2 - 20;
+    float pixelWidth = self.view.bounds.size.width - 2;
+    float pixelHeight = self.view.bounds.size.height - 2;
+    
     float arraySize = (int)array.count - 1;
     float xmultiplier = (arraySize / pixelWidth);
     float ymultiplier = (pixelHeight/100);
