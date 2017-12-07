@@ -23,12 +23,6 @@
         self.subjectTemplate[@"startDate"] = @"StartDate";
         self.subjectTemplate[@"finishDate"] = @"FinishDate";
         
-        /*self.entryTemplate = [[NSMutableDictionary alloc] init];
-        self.entryTemplate[@"title"] = @"Template";
-        self.entryTemplate[@"note"] = @"This is a note";
-        self.entryTemplate[@"anxietyArea"] = @(10);
-        */
-        
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         self.filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Data.out"];
 
@@ -41,6 +35,7 @@
         
         if ([self.subjects count] == 0)
         {
+            /*
             NSMutableDictionary *tempSubject = [[NSMutableDictionary alloc] init];
         
             NSMutableDictionary *entrys = [[NSMutableDictionary alloc] init];
@@ -91,6 +86,7 @@
             self.subjects[@"keyArray"] = keyArray;
         
             [self save:self.subjects];
+             */
         }
         
     }
