@@ -31,6 +31,13 @@
         if(!self.subjects)
         {
             self.subjects = [[NSMutableDictionary alloc] init];
+            NSMutableArray *keyArray = [[NSMutableArray alloc] init];
+            //[keyArray addObject:@"tempp"];
+            self.subjects[@"keyArray"] = keyArray;
+            //self.subjects[@"temp"] = [self.subjectTemplate mutableCopy];
+            [self save:self.subjects];
+            //NSLog(@"%@",self.subjects);
+            //NSLog(@"%@",[self load]);
         }
         
         if ([self.subjects count] == 0)

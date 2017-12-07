@@ -68,7 +68,9 @@
             
             self.data.subjects = [self.data load];
             self.data.subjects[subjectName] = [self.data.subjectTemplate mutableCopy];
-            [self.data.subjects[@"keyArray"] insertObject:subjectName atIndex:0];
+            
+            [self.data.subjects[@"keyArray"] addObject:subjectName];
+            
             [self.data save:self.data.subjects];
             
             [self.tableView reloadData];
@@ -126,6 +128,7 @@
     
     //NSArray *getkeys = [self.data.subjects allKeys];
     //NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
+    
     
     
     cell.textLabel.text = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row];
