@@ -17,11 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self drawGraph];
     // Do any additional setup after loading the view.
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewDidLayoutSubviews {
     [self drawGraph];
 }
 

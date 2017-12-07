@@ -112,10 +112,8 @@
         float tempHeight = self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - UIApplication.sharedApplication.statusBarFrame.size.height - 50;
         
         if (tempWidth < tempHeight){
-            NSLog(@"Width");
             entryModelViewController.width = tempWidth;
         } else {
-            NSLog(@"Height");
             entryModelViewController.width = tempHeight;
         }
         
