@@ -65,7 +65,6 @@
 		8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Growth_Zone_ModelUITests.m; sourceTree = "<group>"; };
 		8C9023421FC47DBF00466BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A53C85B11FCE080200A6F860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A53C85B71FD0BDEF00A6F860 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A53C85C21FD1845000A6F860 /* ProgressGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressGraphViewController.h; sourceTree = "<group>"; };
 		A53C85C31FD1845000A6F860 /* ProgressGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressGraphViewController.m; sourceTree = "<group>"; };
 		A53C85C51FD1867E00A6F860 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -192,7 +191,6 @@
 				A53C85C91FD1868D00A6F860 /* Foundation.framework */,
 				A53C85C71FD1868600A6F860 /* CoreGraphics.framework */,
 				A53C85C51FD1867E00A6F860 /* UIKit.framework */,
-				A53C85B71FD0BDEF00A6F860 /* GLKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
