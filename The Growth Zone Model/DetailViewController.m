@@ -16,35 +16,35 @@
 
 - (void)configureView {
 
-    self.data = [[DataModel alloc] init];
-    self.date = [[Date alloc] init]; //Initiate local DateFormatter
+    self.data = [[DataModel alloc] init]; // Initialise the DataModel
+    self.date = [[Date alloc] init];      // Initialise local DateFormatter
     
-    self.BTCreateEntry.layer.cornerRadius = 10.0f;
-    self.TBPastEntries.layer.borderColor = [[UIColor grayColor]CGColor];
-    self.TBPastEntries.layer.borderWidth = 2.0f;
-    self.progressGraph.layer.borderWidth = 2.0f;
+    self.BTCreateEntry.layer.cornerRadius = 10.0f;                        // Create borders and colours
+    self.TBPastEntries.layer.borderColor = [[UIColor grayColor]CGColor];  // for aesthetics
+    self.TBPastEntries.layer.borderWidth = 2.0f;                          //
+    self.progressGraph.layer.borderWidth = 2.0f;                          //
 
-    if (self.subjectID) {
+    if (self.subjectID) { // Checks if a subject is selected
         
-        self.view.userInteractionEnabled = YES;
+        self.view.userInteractionEnabled = YES; // Enable the user to interact with the view
         
-        self.subject = self.data.subjects[self.subjectID];
+        self.subject = self.data.subjects[self.subjectID]; // Sets self.subject to be the correct data
         
-        self.title = self.subjectID;
+        self.title = self.subjectID; // Sets the title
         
-        NSArray *sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-            if (([a length] != [b length]) && ([a substringToIndex:9] == [b substringToIndex:9])) {
-                return [[NSNumber numberWithInteger:[a length]] compare:[NSNumber numberWithInteger:[b length]]];
+        NSArray *sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) { // Sorts the entry keys
+            if (([a length] != [b length]) && ([a substringToIndex:9] == [b substringToIndex:9])) {                                                 // Based on the date
+                return [[NSNumber numberWithInteger:[a length]] compare:[NSNumber numberWithInteger:[b length]]];                                   // and the iteration number
             } else {
                 return [a compare:b];
         }}];
         
         if(sortedKeys.count){
             self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
+            //Input the first and last date from the sorted keys, and remove any increment on the dates
         } else {
             self.LBDates.text = @"No Entries";
         }
-        //Input the first and last date from the sorted keys, and remove any increment on the dates
         
     } else {
         self.view.userInteractionEnabled = NO;
