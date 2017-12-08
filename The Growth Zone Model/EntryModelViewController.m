@@ -19,25 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.entryViewController viewDidLoad];
+    [self.entryViewController viewDidLoad]; // Reload the entryViewController  to show the model
     
-    self.data = [[DataModel alloc] init];
+    self.data = [[DataModel alloc] init];   // Initialise the DataModel
     
-    self.entry = self.entryViewController.entry;
+    self.entry = self.entryViewController.entry; // Set the entry to self.entry to reduce code complexity
     
-    self.radiusMultiplier = self.width - 12;
+    self.radiusMultiplier = self.width - 12; // Set the radiusMultiplier with the offset for the border
     
-    self.tolerance = 0.005;
+    self.tolerance = 0.005; // Set the tolerance for how close circles can get
     
-    if (self.entry[@"anxietyRadius"] == NULL){
+    if (self.entry[@"anxietyRadius"] == NULL){ // If there are none, set some arbitrary starting values for the radii
         self.entry[@"anxietyRadius"] = [[NSNumber alloc] initWithFloat:0.4];
         self.entry[@"growthRadius"] = [[NSNumber alloc] initWithFloat:0.3];
         self.entry[@"comfortRadius"] = [[NSNumber alloc] initWithFloat:0.2];
         
     }
     
-    [self updateCircles];
-    // Do any additional setup after loading the view.
+    [self updateCircles]; // Calls the update Circle method
 }
 
 #pragma mark - Gesture Recognition
@@ -55,30 +54,32 @@
 - (void)moveCircle:(UIPanGestureRecognizer *)panning
 {
     if(panning.state == UIGestureRecognizerStateEnded){
-        self.selected = NULL;
+        self.selected = NULL; // When the gesture has finished, set the selection to null
     } else {
-        CGPoint current = [panning locationInView:self.view];
-        CGPoint translation = [panning translationInView:self.view];
+        CGPoint current = [panning locationInView:self.view];        // Current gesture location
+        CGPoint translation = [panning translationInView:self.view]; // Total gesture translation
     
-        CGPoint startCentered = CGPointMake(current.x-translation.x-self.width/2, current.y-translation.y-self.width/2);
-        CGPoint currentCentered = CGPointMake(current.x-self.width/2, current.y-self.width/2);
+        CGPoint startCentered = CGPointMake(current.x-translation.x-self.width/2, current.y-translation.y-self.width/2); // Gesture start relative to the center of the circles
+        CGPoint currentCentered = CGPointMake(current.x-self.width/2, current.y-self.width/2);                           // Gesture current relative to the center of the circles
     
-        float stardRad = powf(powf(startCentered.x, 2)+powf(startCentered.y, 2), 0.5)/self.radiusMultiplier;
-        float currentRad = powf(powf(currentCentered.x, 2)+powf(currentCentered.y, 2), 0.5)/self.radiusMultiplier;
+        float stardRad = powf(powf(startCentered.x, 2)+powf(startCentered.y, 2), 0.5)/self.radiusMultiplier;       // Performs Pythagorus to find the distance from the center
+        float currentRad = powf(powf(currentCentered.x, 2)+powf(currentCentered.y, 2), 0.5)/self.radiusMultiplier; // of the circles to the points
 
-        float anxietyDiff = fabs([self.entry[@"anxietyRadius"] floatValue] - stardRad);
-        float growthDiff = fabs([self.entry[@"growthRadius"] floatValue] - stardRad);
-        float comfortDiff = fabs([self.entry[@"comfortRadius"] floatValue] - stardRad);
         
         if (self.selected) {
-            [self radiusCheckForCircle:self.selected withRadius:currentRad];
+            [self radiusCheckForCircle:self.selected withRadius:currentRad]; // If a circle is already selected, call the next function to move the circles
         } else {
-            if ((anxietyDiff < growthDiff) && (anxietyDiff < comfortDiff)){
+            
+            float anxietyDiff = fabs([self.entry[@"anxietyRadius"] floatValue] - stardRad); // Finds the distance between the gesture and each
+            float growthDiff = fabs([self.entry[@"growthRadius"] floatValue] - stardRad);   // circle
+            float comfortDiff = fabs([self.entry[@"comfortRadius"] floatValue] - stardRad); //
+            
+            if ((anxietyDiff < growthDiff) && (anxietyDiff < comfortDiff)){         //
                 self.selected = @"anxiety";
-            } else if ((growthDiff < anxietyDiff) && (growthDiff < comfortDiff)){
-                self.selected = @"growth";
+            } else if ((growthDiff < anxietyDiff) && (growthDiff < comfortDiff)){   //
+                self.selected = @"growth";                                          //
             } else {
-                self.selected = @"comfort";
+                self.selected = @"comfort";                                         //
             }
         }
         [self updateCircles];
