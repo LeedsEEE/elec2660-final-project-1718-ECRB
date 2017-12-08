@@ -14,14 +14,14 @@
 
 @implementation EntryModelViewController
 
+#pragma mark - Initialisation
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.entryViewController viewDidLoad];
     
     self.data = [[DataModel alloc] init];
-    
-    //self.entry = self.data.subjects[self.subjectID][@"entrys"][self.entryID];
     
     self.entry = self.entryViewController.entry;
     
@@ -40,29 +40,7 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)updateCircles {
-
-    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
-
-    [self.view addSubview:[self circleWithColor:[UIColor whiteColor] radius:0.5 * self.width - 4 posx:self.width/2 posy:self.width/2 border:2.0]];
-    
-    [self.view addSubview:[self circleWithColor:[UIColor redColor] radius:[self.entry[@"anxietyRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
-    [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:[self.entry[@"growthRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
-    [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:[self.entry[@"comfortRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
-    
-    int comfortArea = round(pow(([self.entry[@"comfortRadius"] floatValue] + self.tolerance * 2) * 2,2) * 100);
-    int growthArea = round(pow(([self.entry[@"growthRadius"] floatValue] + self.tolerance) * 2,2) * 100) - comfortArea;
-    int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue] * 2,2) * 100) - growthArea - comfortArea;
-    
-    self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:anxietyArea];
-    self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:growthArea];
-    self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:comfortArea];
-    
-    NSLog(@"%@model",self.entry);
-    
-    self.entryViewController.entry = self.entry;
-    [self.entryViewController updateLabels_comfort:comfortArea growth:growthArea anxiety:anxietyArea];
-}
+#pragma mark - Gesture Recognition
 
 - (IBAction)pan:(id)sender {
     UIPanGestureRecognizer *moveCircles = [[UIPanGestureRecognizer alloc] // Creates the gesture recogniser that calls the method moveCircle
@@ -107,6 +85,33 @@
     }
 }
 
+#pragma mark - Draw Model
+
+- (void)updateCircles {
+    
+    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    
+    [self.view addSubview:[self circleWithColor:[UIColor whiteColor] radius:0.5 * self.width - 4 posx:self.width/2 posy:self.width/2 border:2.0]];
+    
+    [self.view addSubview:[self circleWithColor:[UIColor redColor] radius:[self.entry[@"anxietyRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:[self.entry[@"growthRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:[self.entry[@"comfortRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    
+    int comfortArea = round(pow(([self.entry[@"comfortRadius"] floatValue] + self.tolerance * 2) * 2,2) * 100);
+    int growthArea = round(pow(([self.entry[@"growthRadius"] floatValue] + self.tolerance) * 2,2) * 100) - comfortArea;
+    int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue] * 2,2) * 100) - growthArea - comfortArea;
+    
+    self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:anxietyArea];
+    self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:growthArea];
+    self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:comfortArea];
+    
+    NSLog(@"%@model",self.entry);
+    
+    self.entryViewController.entry = self.entry;
+    [self.entryViewController updateLabels_comfort:comfortArea growth:growthArea anxiety:anxietyArea];
+}
+
+
 - (float)radiusCheckForCircle:(NSString *)circle withRadius:(float)radius {
     
     float tempRadius;
@@ -148,20 +153,23 @@
     }
 }
 
+- (UIView *)circleWithColor:(UIColor *)color radius:(int)radius posx:(int)posx posy:(int)posy border:(float)border{ // Similar to function in progress graph
+                                            // - (UIView *)rectWithColour:(UIColor *)colour posx:(int)posx posy:(int)posy width:(int)width height:(int)height
+    UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(posx - radius, posy - radius, radius * 2, radius * 2)]; // Lets the user input the center of the circle and radius
+    circle.backgroundColor = color;      // Sets the colour                                                           // rather than the topleft corner and width
+    circle.layer.cornerRadius = radius;  // Sets the corner radius
+    circle.layer.masksToBounds = YES;    // Limits the view drawing to its bounds
+    circle.layer.borderWidth = border;   // Sets the border of the circle
+    return circle;
+}
 
+#pragma mark - Future Use
 
+/*
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (UIView *)circleWithColor:(UIColor *)color radius:(int)radius posx:(int)posx posy:(int)posy border:(float)border{
-    UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(posx - radius, posy - radius, radius*2, radius*2)];
-    circle.backgroundColor = color;
-    circle.layer.cornerRadius = radius;
-    circle.layer.masksToBounds = YES;
-    circle.layer.borderWidth = border;
-    return circle;
-}
+*/
 
 @end
