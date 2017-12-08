@@ -19,7 +19,6 @@
 		A53C85B21FCE080200A6F860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53C85B11FCE080200A6F860 /* Assets.xcassets */; };
 		A53C85C41FD1845000A6F860 /* ProgressGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53C85C31FD1845000A6F860 /* ProgressGraphViewController.m */; };
 		A53C85C61FD1867E00A6F860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C85C51FD1867E00A6F860 /* UIKit.framework */; };
-		A53C85C81FD1868600A6F860 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C85C71FD1868600A6F860 /* CoreGraphics.framework */; };
 		A53C85CA1FD1868D00A6F860 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C85C91FD1868D00A6F860 /* Foundation.framework */; };
 		A56B96E21FD586F500DBDB87 /* EntryModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A56B96E11FD586F500DBDB87 /* EntryModelViewController.m */; };
 		A5DBD3641FC8D840000653BF /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DBD3631FC8D840000653BF /* Date.m */; };
@@ -68,7 +67,6 @@
 		A53C85C21FD1845000A6F860 /* ProgressGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressGraphViewController.h; sourceTree = "<group>"; };
 		A53C85C31FD1845000A6F860 /* ProgressGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressGraphViewController.m; sourceTree = "<group>"; };
 		A53C85C51FD1867E00A6F860 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		A53C85C71FD1868600A6F860 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A53C85C91FD1868D00A6F860 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A56B96E01FD586F500DBDB87 /* EntryModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryModelViewController.h; sourceTree = "<group>"; };
 		A56B96E11FD586F500DBDB87 /* EntryModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryModelViewController.m; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53C85CA1FD1868D00A6F860 /* Foundation.framework in Frameworks */,
-				A53C85C81FD1868600A6F860 /* CoreGraphics.framework in Frameworks */,
 				A53C85C61FD1867E00A6F860 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				A53C85C91FD1868D00A6F860 /* Foundation.framework */,
-				A53C85C71FD1868600A6F860 /* CoreGraphics.framework */,
 				A53C85C51FD1867E00A6F860 /* UIKit.framework */,
 			);
 			name = Frameworks;
