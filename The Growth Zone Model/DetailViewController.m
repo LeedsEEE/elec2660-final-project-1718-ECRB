@@ -16,6 +16,11 @@
 
 #pragma mark - Loading and Configuration
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self configureView]; // Reconfigures the view every time it appears, this lets the graph resize and update
+}
+
 - (void)configureView {
 
     self.data = [[DataModel alloc] init]; // Initialise the DataModel
@@ -62,21 +67,6 @@
         [self.view insertSubview:blurView atIndex:2]; // Insert the blur below the label
     }
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self configureView]; // Reconfigures the view every time it appears, this lets the graph resize and update
-}
-
-/*
-- (void)viewDidLoad {                   // Methods left for future use
-    [super viewDidLoad];                //
-}                                       //
-                                        //
-- (void)didReceiveMemoryWarning {       //
-    [super didReceiveMemoryWarning];    //
-}
-*/
  
 #pragma mark - Segues
 
@@ -98,5 +88,17 @@
         
     }
 }
+
+#pragma mark - Future Use
+
+/*
+ - (void)viewDidLoad {
+ [super viewDidLoad];
+ }
+ 
+ - (void)didReceiveMemoryWarning {
+ [super didReceiveMemoryWarning];
+ }
+ */
 
 @end
