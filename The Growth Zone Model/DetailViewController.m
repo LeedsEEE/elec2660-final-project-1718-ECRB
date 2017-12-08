@@ -14,6 +14,8 @@
 
 @implementation DetailViewController
 
+#pragma mark - Loading and Configuration
+
 - (void)configureView {
 
     self.data = [[DataModel alloc] init]; // Initialise the DataModel
@@ -39,65 +41,61 @@
                 return [a compare:b];
         }}];
         
-        if(sortedKeys.count){
-            self.LBDates.text = [NSString stringWithFormat:@"%@ - %@", [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]];
-            //Input the first and last date from the sorted keys, and remove any increment on the dates
+        if(sortedKeys.count){ // If there are any entrys
+            self.LBDates.text = [NSString stringWithFormat:@"%@ - %@",                          // Remove any iteration on the dates
+            [[sortedKeys lastObject]substringToIndex:10], [sortedKeys[0] substringToIndex:10]]; // Set the label to be the first to last date
         } else {
-            self.LBDates.text = @"No Entries";
+            self.LBDates.text = @"No Entries"; // Set the label to no entries when there are no entries
         }
         
-    } else {
-        self.view.userInteractionEnabled = NO;
-        self.title = @"";
+    } else { // No siubject is selected
+        self.view.userInteractionEnabled = NO; // Stops user interacting with the view
+        self.title = @"";                      // Clear title
         
-        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent];
-        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];
-        blurView.frame = self.view.bounds;
-        blurView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent];   // Create a blur effect
+        UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithEffect:blur];  // Create an EffectView with the effect blur
+        blurView.frame = self.view.bounds;                                                // Set the EffectView frame to the bounds of the detailview
+        blurView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth; // Let the blur autosize
         
-        self.overlayView.hidden = NO;
+        self.overlayView.hidden = NO; // Set the overlay to visible, the overlay holds the "Please Select a Subject" label
 
-        [self.view insertSubview:blurView atIndex:2];
+        [self.view insertSubview:blurView atIndex:2]; // Insert the blur below the label
     }
 }
 
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
-    
-    self.data.subjects = [self.data load];
-
     [super viewWillAppear:animated];
-    [self viewDidLoad];
+    [self configureView]; // Reconfigures the view every time it appears, this lets the graph resize and update
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/*
+- (void)viewDidLoad {                   // Methods left for future use
+    [super viewDidLoad];                //
+}                                       //
+                                        //
+- (void)didReceiveMemoryWarning {       //
+    [super didReceiveMemoryWarning];    //
 }
+*/
+ 
+#pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"showNewEntry"]) {
+    if ([[segue identifier] isEqualToString:@"showNewEntry"]) { // If the segue is creating a new entry
         
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden
         
-        self.entryTableViewController = [segue destinationViewController];
+        self.entryViewController = [segue destinationViewController]; // Sets the self.entryviewcontroller to be the viewcontroller that is being segued to
         
-        self.entryTableViewController.subjectID = self.subjectID;
+        self.entryViewController.subjectID = self.subjectID; // Sets the correct subjectID for the new view controller
         
-    } else if ([[segue identifier] isEqualToString:@"embed"]) {
+    } else if ([[segue identifier] isEqualToString:@"embed"]) { // If the segue is embedding the entry table
         
-        self.entryTableViewController = [segue destinationViewController];
+        self.entryTableViewController = [segue destinationViewController]; // Sets self.entryTableViewController to be the embbedded viewcontroller
         
-        self.entryTableViewController.subjectID = self.subjectID;
+        self.entryTableViewController.subjectID = self.subjectID; // Sets the correct subjectID for the table
         
     }
 }

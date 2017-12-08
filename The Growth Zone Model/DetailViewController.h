@@ -10,9 +10,11 @@
 #import "Date.h"
 #import "DataModel.h"
 #import "EntryTableViewController.h"
+#import "EntryViewController.h"
 #import <GLKit/GLKit.h>
 
 @class EntryTableViewController;
+@class EntryViewController;
 
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UINavigationItem *subjectNavigation;
@@ -36,5 +38,6 @@
 @property (strong, nonatomic) DataModel *data;
 
 @property (strong, nonatomic) EntryTableViewController *entryTableViewController;
+@property (strong, nonatomic) EntryViewController *entryViewController;
 
 @end
