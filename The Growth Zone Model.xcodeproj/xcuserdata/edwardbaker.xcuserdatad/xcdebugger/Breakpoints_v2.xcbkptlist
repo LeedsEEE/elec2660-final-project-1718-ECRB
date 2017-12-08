@@ -74,22 +74,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "The Growth Zone Model/MasterViewController.m"
-            timestampString = "534345767.83999"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "-prepareForSegue:sender:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "The Growth Zone Model/MasterViewController.m"
             timestampString = "534433598.410795"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

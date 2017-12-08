@@ -5,6 +5,7 @@
 //  Created by Edward Baker [el16ecrb] on 21/11/2017.
 //  Copyright © 2017 Edward Baker [el16ecrb]. All rights reserved.
 //
+//  Most of the AppDelegate has remained the same as the initial XCode Template
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
@@ -18,11 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
-    splitViewController.presentsWithGesture = NO;
+    
+    splitViewController.presentsWithGesture = NO;         //Stops the splitviewcontroller from presenting the master view with gestures, which can occur during entrymodel resizing
+    
     return YES;
 }
 
