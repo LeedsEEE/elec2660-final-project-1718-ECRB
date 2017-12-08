@@ -69,7 +69,7 @@
             self.data.subjects = [self.data load];
             self.data.subjects[subjectName] = [self.data.subjectTemplate mutableCopy];
             
-            [self.data.subjects[@"keyArray"] addObject:subjectName];
+            [self.data.subjects[@"keyArray"] insertObject:subjectName atIndex:0];
             
             [self.data save:self.data.subjects];
             
