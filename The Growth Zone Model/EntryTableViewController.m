@@ -43,9 +43,9 @@
     
     self.sortedKeys = [[self.data.subjects[self.subjectID][@"entrys"] allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         if (([a length] != [b length]) && ([a substringToIndex:9] == [b substringToIndex:9])) {
-            return [[NSNumber numberWithInteger:[a length]] compare:[NSNumber numberWithInteger:[b length]]];
+            return [[NSNumber numberWithInteger:[b length]] compare:[NSNumber numberWithInteger:[a length]]];
         } else {
-            return [a compare:b];
+            return [b compare:a];
     }}];
     
     [super viewWillAppear:animated];
