@@ -66,9 +66,7 @@
         float currentRad = powf(powf(currentCentered.x, 2)+powf(currentCentered.y, 2), 0.5)/self.radiusMultiplier; // of the circles to the points
 
         
-        if (self.selected) {
-            [self radiusCheckForCircle:self.selected withRadius:currentRad]; // If a circle is already selected, call the next function to move the circles
-        } else {
+        if (!self.selected) {
             
             float anxietyDiff = fabs([self.entry[@"anxietyRadius"] floatValue] - stardRad); // Finds the distance between the gesture and each
             float growthDiff = fabs([self.entry[@"growthRadius"] floatValue] - stardRad);   // circle
@@ -82,6 +80,7 @@
                 self.selected = @"comfort";                                         //
             }
         }
+        [self radiusCheckForCircle:self.selected withRadius:currentRad]; // If a circle is already selected, call the next function to move the circles
         [self updateCircles];
     }
 }
