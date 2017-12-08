@@ -20,6 +20,9 @@
     [super viewDidLoad];
     
     self.data = [[DataModel alloc] init]; // Initalise the datamodel
+    
+    self.border = 2;
+    
 }
 
 #pragma mark - When to reload Graph
@@ -52,8 +55,8 @@
 
 - (void)drawGraphFromArray:(NSArray *)array {
     
-    float pixelWidth = self.view.bounds.size.width - 2;   // Sets the pixelWidth to the view width minus a border offset
-    float pixelHeight = self.view.bounds.size.height - 2; // Sets the pixelHeight
+    float pixelWidth = self.view.bounds.size.width - self.border * 2;   // Sets the pixelWidth to the view width minus a border offset
+    float pixelHeight = self.view.bounds.size.height - self.border * 2; // Sets the pixelHeight
     
     float arrayGaps = (int)array.count - 1;       // Finds the amount of gaps between objects in the array
     float xmultiplier = (arrayGaps / pixelWidth); // Calculates one over the amount of pixels inbetween each entry point
@@ -66,26 +69,34 @@
             
             int prev = floor(xmultiplier*i);        // Calculates the index of the entry before the current pixel
             int next = ceil(xmultiplier*i);         // Calculates the index of the entry after the current pixel
-            float prevPixel = prev / xmultiplier;     // Calculates the
-            float nextPixel = next / xmultiplier;     //
+            float prevPixel = prev / xmultiplier;     // Calculates the theoretical horizontal pixel position of the previous entry
+            float nextPixel = next / xmultiplier;     // Calculates the theoretical horizontal pixel position of the next entry
             
-            float comfortHeight = 0.0;
-            float growthHeight = 0.0;
-            float anxietyHeight = 0.0;
+            float comfortHeight = 0.0; // Create the height variables
+            float growthHeight = 0.0;  //
+            float anxietyHeight = 0.0; //
             
-            if (prevPixel == nextPixel) {
-                comfortHeight = [array[prev][0] floatValue] * ymultiplier;
-                growthHeight = [array[prev][1] floatValue] * ymultiplier;
-                anxietyHeight = [array[prev][2] floatValue] * ymultiplier;
+            if (prevPixel == nextPixel) { // Checks if the current pixel is directly on one entry
+                comfortHeight = [array[prev][0] floatValue] * ymultiplier;  // Sets the heights to the percentage
+                growthHeight = [array[prev][1] floatValue] * ymultiplier;   // multiplied by the ymultiplier
+                anxietyHeight = [array[prev][2] floatValue] * ymultiplier;  //
                 
             } else {
-                comfortHeight = (([array[next][0] floatValue] - [array[prev][0] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][0] floatValue]) * ymultiplier;
-                growthHeight = (([array[next][1] floatValue] - [array[prev][1] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][1] floatValue]) * ymultiplier;
-                anxietyHeight = (([array[next][2] floatValue] - [array[prev][2] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][2] floatValue]) * ymultiplier;
+                comfortHeight = (([array[next][0] floatValue] - [array[prev][0] floatValue]) * (i - prevPixel) // Calculates the change in height between the
+                                 / (nextPixel - prevPixel) + [array[prev][0] floatValue]) * ymultiplier;       // previous and last entry per pixel
+                growthHeight = (([array[next][1] floatValue] - [array[prev][1] floatValue]) * (i - prevPixel)  // mutliplies this by the amount of pixels
+                                / (nextPixel - prevPixel) + [array[prev][1] floatValue]) * ymultiplier;        // the current pixel is after the previous entry
+                anxietyHeight = (([array[next][2] floatValue] - [array[prev][2] floatValue]) * (i - prevPixel) // then adds this to the height of the previous entry
+                                 / (nextPixel - prevPixel) + [array[prev][2] floatValue]) * ymultiplier;       // then mutliplies this by the y mutliplier
             }
-            [self.view addSubview:[self rectWithColour:[UIColor redColor] posx:i+2 posy:2+pixelHeight-anxietyHeight  width:1 height:anxietyHeight]];
-            [self.view addSubview:[self rectWithColour:[UIColor yellowColor] posx:i+2 posy:2+pixelHeight-growthHeight width:1 height:growthHeight]];
-            [self.view addSubview:[self rectWithColour:[UIColor greenColor] posx:i+2 posy:2+pixelHeight-comfortHeight width:1 height:comfortHeight]];
+            
+            [self.view addSubview:[self rectWithColour:[UIColor redColor] posx:i + self.border
+                                                  posy: self.border * 2 + pixelHeight - anxietyHeight  width:1 height:anxietyHeight]];  // Creates three stacked
+            [self.view addSubview:[self rectWithColour:[UIColor yellowColor] posx:i + self.border
+                                                  posy: self.border * 2 + pixelHeight - growthHeight width:1 height:growthHeight]];  // lines for the current
+            [self.view addSubview:[self rectWithColour:[UIColor greenColor] posx:i + self.border
+                                                  posy: self.border * 2 + pixelHeight - comfortHeight width:1 height:comfortHeight]]; // x pixel of the graph
+            
         }
     } else {
         float comfortHeight = [array[0][0] floatValue] * ymultiplier;

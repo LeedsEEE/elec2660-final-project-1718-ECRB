@@ -20,4 +20,6 @@
 
 @property (strong, nonatomic) DataModel *data;
 
+@property int border;
+
 @end
