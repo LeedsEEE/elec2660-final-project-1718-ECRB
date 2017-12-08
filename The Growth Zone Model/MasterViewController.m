@@ -15,46 +15,57 @@
 
 @implementation MasterViewController
 
+#pragma mark - View Loading
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[DataModel alloc] init]; // Initiate DataModel
+    self.data = [[DataModel alloc] init]; // Initialise DataModel
     
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;                       // Sets the left button on the master view to edit the table
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                  target:self action:@selector(insertNewObject:)];     // Creates a button, addButton, that calls insertnewobject when pressed
+    self.navigationItem.rightBarButtonItem = addButton;                                // Sets the right button on the master view to be addButton
+    
+    self.detailViewController =
+    (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController]; // Sets the detailViewController property of the master view
+                                                                                                       // to the view controller at the top of the stack in the last object
+                                                                                                       // in the array of viewcontroller managed by the splitviewcontroller
     
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
-    self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
+    self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed; //Clears the subject table selection when the splitviewcontroller is collapsed
     [super viewWillAppear:animated];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // As my app is not memory heavy there is no code here
+    // But the method is kept incase of future modifications that would require it
 }
 
+#pragma mark - New Subject
 
-- (void)insertNewObject:(id)sender {
+- (void)insertNewObject:(id)sender { // This method is called when the plus button above the subject table is pressed
     
-    UIAlertController *popUp = [UIAlertController alertControllerWithTitle:@"New Subject" message:@"Please enter your subject title" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *popUp = [UIAlertController alertControllerWithTitle:@"New Subject"   // Creates a popup *popup with title "New Subject"
+    message:@"Please enter your subject title" preferredStyle:UIAlertControllerStyleAlert]; // with a message a"Please enter your subject title"
+                                                                                            // and in the style of an Alert
     
-    [popUp addTextFieldWithConfigurationHandler:^(UITextField *_Nonnull subjectTitle){
-        subjectTitle.placeholder = @"Subject Title";
-    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:nil];
-    [popUp addAction:cancel];
+    [popUp addTextFieldWithConfigurationHandler:^(UITextField *_Nonnull subjectTitle){      // Adds a text field to the popup
+        subjectTitle.placeholder = @"Subject Title"; }];                                    // with the placeholder "Subject Title"
     
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" // Creates an Alert action (button) in the style cancel
+    style:UIAlertActionStyleCancel handler:nil];                     // which closes the parent popup when its pressed
     
-    UIAlertAction *create = [UIAlertAction actionWithTitle:@"Create Subject" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *subjectCreated){
-        
+    [popUp addAction:cancel];                                        // Adds the action cancel to the popup *popup
+    
+    UIAlertAction *create = [UIAlertAction actionWithTitle:@"Create Subject"                                // Creates an Alert action in the style destructive
+                            style:UIAlertActionStyleDestructive handler:^(UIAlertAction *subjectCreated){   // similar to cancel, but its handler calls the
+                                                                                                            // following block when pressed
         NSString *subjectName = [[popUp textFields][0] text];
         
         if ([self.data.subjects[@"keyArray"] containsObject:subjectName]){
@@ -88,28 +99,6 @@
     [self presentViewController:popUp animated:YES completion:nil];
 
 }
-
-
-#pragma mark - Segues
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        
-        DetailViewController *detailViewController = (DetailViewController *)[[segue destinationViewController] topViewController];
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        //NSArray *getkeys = [self.data.subjects allKeys];
-        //NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
-        
-        detailViewController.subjectID = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row];
-        
-        detailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        detailViewController.navigationItem.leftItemsSupplementBackButton = YES;
-        
-    }
-}
-
 
 #pragma mark - Table View
 
@@ -173,6 +162,26 @@
         [self presentViewController:deleteWarning animated:YES completion:nil];
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        
+    }
+}
+
+#pragma mark - Segues
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
+        DetailViewController *detailViewController = (DetailViewController *)[[segue destinationViewController] topViewController];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        //NSArray *getkeys = [self.data.subjects allKeys];
+        //NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
+        
+        detailViewController.subjectID = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row];
+        
+        detailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        detailViewController.navigationItem.leftItemsSupplementBackButton = YES;
         
     }
 }
