@@ -144,45 +144,41 @@
             [self.data.subjects removeObjectForKey:subjectKey];                  // Removes subject from dictionary (data)
             [self.data.subjects[@"keyArray"] removeObjectAtIndex:indexPath.row]; // Removes subject from keyArray
             
-            [self.data save:self.data.subjects];
-            [self.tableView reloadData];
-            [self viewDidLoad];
+            [self.data save:self.data.subjects]; // Saves the changes in data
+            [self.tableView reloadData];         // Reloads the table
+            [self viewDidLoad];                  // Reloads the view
             
-            if (self.detailViewController.subjectID == subjectKey){
-                self.detailViewController.subjectID = NULL;
-                [self.detailViewController viewDidLoad];
+            if (self.detailViewController.subjectID == subjectKey){ // If the current selection is the subject to be deleted
+                self.detailViewController.subjectID = NULL;         // Change the selection to null
+                [self.detailViewController viewDidLoad];            // Reload the detail view
             }
-            
         }];
-        [deleteWarning addAction:yes];
         
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-        [deleteWarning addAction:cancel];
+        [deleteWarning addAction:yes]; // Add the delete action to the popup
         
-        [self presentViewController:deleteWarning animated:YES completion:nil];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]; // Create a cancel action, this will close the popup without deleting the subject
+        [deleteWarning addAction:cancel];                                                                             // Add the cancel action to the popup
         
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        [self presentViewController:deleteWarning animated:YES completion:nil]; // Show the popup
+        
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) { // Code left for future use incase more handling of inserting objects is needed
         
     }
 }
 
 #pragma mark - Segues
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender { // Method is called before any segue occurs
     
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) { // If the segue is to show the detail view controller
         
-        DetailViewController *detailViewController = (DetailViewController *)[[segue destinationViewController] topViewController];
+        DetailViewController *detailViewController = (DetailViewController *)[[segue destinationViewController] topViewController]; // Create a local object of type DetailViewController
         
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow]; // Finds the index path for the selected row in the table
         
-        //NSArray *getkeys = [self.data.subjects allKeys];
-        //NSString *subjectID = [getkeys objectAtIndex:indexPath.row];
+        detailViewController.subjectID = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row]; // Sets the subject of the detailview controller to be the one seleted
         
-        detailViewController.subjectID = [self.data.subjects[@"keyArray"] objectAtIndex:indexPath.row];
-        
-        detailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-        detailViewController.navigationItem.leftItemsSupplementBackButton = YES;
-        
+        detailViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; // Creates the split view controller show in the detail view controller
+        detailViewController.navigationItem.leftItemsSupplementBackButton = YES;                                // This sets the button to supplement the back button rather than replace it
     }
 }
 
