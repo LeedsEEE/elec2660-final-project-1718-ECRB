@@ -52,21 +52,22 @@
 
 - (void)drawGraphFromArray:(NSArray *)array {
     
-    float pixelWidth = self.view.bounds.size.width - 2;
-    float pixelHeight = self.view.bounds.size.height - 2;
+    float pixelWidth = self.view.bounds.size.width - 2;   // Sets the pixelWidth to the view width minus a border offset
+    float pixelHeight = self.view.bounds.size.height - 2; // Sets the pixelHeight
     
-    float arraySize = (int)array.count - 1;
-    float xmultiplier = (arraySize / pixelWidth);
-    float ymultiplier = (pixelHeight/100);
+    float arrayGaps = (int)array.count - 1;       // Finds the amount of gaps between objects in the array
+    float xmultiplier = (arrayGaps / pixelWidth); // Calculates one over the amount of pixels inbetween each entry point
+    float ymultiplier = (pixelHeight/100);        // Calculates the PixelHeight over 100 to multiply the area percentage by
 
-    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)]; // Clears all the subviews - previous graphs
     
-    if (arraySize > 0) {
-        for (int i = 0; i < (pixelWidth); i++){
-            int prev = floor(xmultiplier*i);
-            int next = ceil(xmultiplier*i);
-            int prevPixel = prev / xmultiplier;
-            int nextPixel = next / xmultiplier;
+    if (arrayGaps > 0) {                            // Checks if there is more than one entry to graph
+        for (int i = 0; i < (pixelWidth); i++){     // Iterates through each pixel
+            
+            int prev = floor(xmultiplier*i);        // Calculates the index of the entry before the current pixel
+            int next = ceil(xmultiplier*i);         // Calculates the index of the entry after the current pixel
+            float prevPixel = prev / xmultiplier;     // Calculates the
+            float nextPixel = next / xmultiplier;     //
             
             float comfortHeight = 0.0;
             float growthHeight = 0.0;
@@ -78,9 +79,9 @@
                 anxietyHeight = [array[prev][2] floatValue] * ymultiplier;
                 
             } else {
-                comfortHeight = floor((([array[next][0] floatValue] - [array[prev][0] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][0] floatValue]) * ymultiplier);
-                growthHeight = floor((([array[next][1] floatValue] - [array[prev][1] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][1] floatValue]) * ymultiplier);
-                anxietyHeight = floor((([array[next][2] floatValue] - [array[prev][2] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][2] floatValue]) * ymultiplier);
+                comfortHeight = (([array[next][0] floatValue] - [array[prev][0] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][0] floatValue]) * ymultiplier;
+                growthHeight = (([array[next][1] floatValue] - [array[prev][1] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][1] floatValue]) * ymultiplier;
+                anxietyHeight = (([array[next][2] floatValue] - [array[prev][2] floatValue]) * (i - prevPixel) / (nextPixel - prevPixel) + [array[prev][2] floatValue]) * ymultiplier;
             }
             [self.view addSubview:[self rectWithColour:[UIColor redColor] posx:i+2 posy:2+pixelHeight-anxietyHeight  width:1 height:anxietyHeight]];
             [self.view addSubview:[self rectWithColour:[UIColor yellowColor] posx:i+2 posy:2+pixelHeight-growthHeight width:1 height:growthHeight]];
