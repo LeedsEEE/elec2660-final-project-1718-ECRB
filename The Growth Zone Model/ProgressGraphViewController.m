@@ -92,20 +92,22 @@
             
             [self.view addSubview:[self rectWithColour:[UIColor redColor] posx:i + self.border
                                                   posy: self.border * 2 + pixelHeight - anxietyHeight  width:1 height:anxietyHeight]];  // Creates three stacked
-            [self.view addSubview:[self rectWithColour:[UIColor yellowColor] posx:i + self.border
-                                                  posy: self.border * 2 + pixelHeight - growthHeight width:1 height:growthHeight]];  // lines for the current
-            [self.view addSubview:[self rectWithColour:[UIColor greenColor] posx:i + self.border
-                                                  posy: self.border * 2 + pixelHeight - comfortHeight width:1 height:comfortHeight]]; // x pixel of the graph
+            [self.view addSubview:[self rectWithColour:[UIColor yellowColor] posx:i + self.border                                       // lines for the current
+                                                  posy: self.border * 2 + pixelHeight - growthHeight width:1 height:growthHeight]];     // x pixel of the graph
+            [self.view addSubview:[self rectWithColour:[UIColor greenColor] posx:i + self.border                                        //
+                                                  posy: self.border * 2 + pixelHeight - comfortHeight width:1 height:comfortHeight]];   //
             
         }
-    } else {
-        float comfortHeight = [array[0][0] floatValue] * ymultiplier;
-        float growthHeight = [array[0][1] floatValue] * ymultiplier;
-        float anxietyHeight = [array[0][2] floatValue] * ymultiplier;
+    } else { // There are less than two entrys, so create three simple rectangles rather than iterate through pixels
         
-        [self.view addSubview:[self rectWithColour:[UIColor redColor] posx:2 posy:2+pixelHeight-anxietyHeight  width:pixelWidth height:anxietyHeight]];
-        [self.view addSubview:[self rectWithColour:[UIColor yellowColor] posx:2 posy:2+pixelHeight-growthHeight width:pixelWidth height:growthHeight]];
-        [self.view addSubview:[self rectWithColour:[UIColor greenColor] posx:2 posy:2+pixelHeight-comfortHeight width:pixelWidth height:comfortHeight]];
+        float comfortHeight = [array[0][0] floatValue] * ymultiplier; // Calculates the heights of the bars
+        float growthHeight = [array[0][1] floatValue] * ymultiplier;  //
+        float anxietyHeight = [array[0][2] floatValue] * ymultiplier; //
+        
+        // Add the rectangles to the view
+        [self.view addSubview:[self rectWithColour:[UIColor redColor] posx:self.border posy:self.border * 2 + pixelHeight - anxietyHeight  width:pixelWidth height:anxietyHeight]];
+        [self.view addSubview:[self rectWithColour:[UIColor yellowColor] posx:self.border posy:self.border * 2 + pixelHeight - growthHeight width:pixelWidth height:growthHeight]];
+        [self.view addSubview:[self rectWithColour:[UIColor greenColor] posx:self.border posy:self.border * 2 + pixelHeight - comfortHeight width:pixelWidth height:comfortHeight]];
         
     }
 }
