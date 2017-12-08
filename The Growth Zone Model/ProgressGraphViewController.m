@@ -114,21 +114,23 @@
                                                                                                     
 -(NSArray *)dataArray
 {
-    NSMutableArray *tempDataArray = [[NSMutableArray alloc] init];
+    NSMutableArray *tempDataArray = [[NSMutableArray alloc] init]; // Create an array to add the entry areas to
     
-    if (self.sortedKeys.count > 0)
+    if (self.sortedKeys.count > 0) // If there are any entrys
     {
-        for (NSString *currentKey in self.sortedKeys)
+        for (NSString *currentKey in self.sortedKeys) // Iterates through each entry
         {
-            NSMutableArray *singleEntryArray = [[NSMutableArray alloc] init];
+            NSMutableArray *singleEntryArray = [[NSMutableArray alloc] init]; // Creates an array
             
+            
+            // For each entry, add each area as an intvalue, but stack the growth and anxiety to be cumulative
             [singleEntryArray addObject:self.entrys[currentKey][@"comfortArea"]];
             [singleEntryArray addObject:[[NSNumber alloc] initWithInt:([self.entrys[currentKey][@"growthArea"] intValue] + [self.entrys[currentKey][@"comfortArea"] intValue])]];
             [singleEntryArray addObject:[[NSNumber alloc] initWithInt:([self.entrys[currentKey][@"anxietyArea"] intValue] + [self.entrys[currentKey][@"growthArea"] intValue] + [self.entrys[currentKey][@"comfortArea"] intValue])]];
             
-            [tempDataArray addObject:singleEntryArray];
+            [tempDataArray addObject:singleEntryArray]; // Add this array to the array of entrys areas
         }
-    } else {
+    } else { // Return a placeholder entry
         NSMutableArray *singleEntryArray = [[NSMutableArray alloc] init];
         
         [singleEntryArray addObject: [[NSNumber alloc] initWithInt:25]];
