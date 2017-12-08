@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Subject.h"
 #import "Date.h"
 #import "DataModel.h"
 #import "EntryTableViewController.h"

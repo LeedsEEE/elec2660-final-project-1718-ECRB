@@ -16,8 +16,6 @@
 		8C90232B1FC47DBF00466BEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */; };
 		8C9023361FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023351FC47DBF00466BEF /* The_Growth_Zone_ModelTests.m */; };
 		8C9023411FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */; };
-		8C9023501FC480FF00466BEF /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C90234F1FC480FF00466BEF /* Subject.m */; };
-		8C9023531FC4811A00466BEF /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9023521FC4811A00466BEF /* Entry.m */; };
 		A53C85B21FCE080200A6F860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53C85B11FCE080200A6F860 /* Assets.xcassets */; };
 		A53C85C41FD1845000A6F860 /* ProgressGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A53C85C31FD1845000A6F860 /* ProgressGraphViewController.m */; };
 		A53C85C61FD1867E00A6F860 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53C85C51FD1867E00A6F860 /* UIKit.framework */; };
@@ -66,10 +64,6 @@
 		8C90233C1FC47DBF00466BEF /* The Growth Zone ModelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The Growth Zone ModelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9023401FC47DBF00466BEF /* The_Growth_Zone_ModelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = The_Growth_Zone_ModelUITests.m; sourceTree = "<group>"; };
 		8C9023421FC47DBF00466BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C90234E1FC480FF00466BEF /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
-		8C90234F1FC480FF00466BEF /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subject.m; sourceTree = "<group>"; };
-		8C9023511FC4811900466BEF /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
-		8C9023521FC4811A00466BEF /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
 		A53C85B11FCE080200A6F860 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A53C85B71FD0BDEF00A6F860 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A53C85C21FD1845000A6F860 /* ProgressGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressGraphViewController.h; sourceTree = "<group>"; };
@@ -157,10 +151,6 @@
 				A5DBD3631FC8D840000653BF /* Date.m */,
 				8C49490E1FC7444300F47F14 /* DataModel.h */,
 				8C49490F1FC7444300F47F14 /* DataModel.m */,
-				8C90234E1FC480FF00466BEF /* Subject.h */,
-				8C90234F1FC480FF00466BEF /* Subject.m */,
-				8C9023511FC4811900466BEF /* Entry.h */,
-				8C9023521FC4811A00466BEF /* Entry.m */,
 				8C9023241FC47DBF00466BEF /* Main.storyboard */,
 				A53C85B11FCE080200A6F860 /* Assets.xcassets */,
 				8C9023291FC47DBF00466BEF /* LaunchScreen.storyboard */,
@@ -340,10 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9023531FC4811A00466BEF /* Entry.m in Sources */,
 				8C90231D1FC47DBF00466BEF /* AppDelegate.m in Sources */,
 				8C9023201FC47DBF00466BEF /* MasterViewController.m in Sources */,
-				8C9023501FC480FF00466BEF /* Subject.m in Sources */,
 				8C4949101FC7444300F47F14 /* DataModel.m in Sources */,
 				A5DBD36D1FC8E7C2000653BF /* EntryTableViewController.m in Sources */,
 				8C90231A1FC47DBF00466BEF /* main.m in Sources */,

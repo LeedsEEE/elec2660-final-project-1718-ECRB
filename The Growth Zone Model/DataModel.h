@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Subject.h"
-#import "Entry.h"
 #import "Date.h"
 
 @interface DataModel : NSObject
