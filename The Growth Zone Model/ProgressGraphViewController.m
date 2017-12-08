@@ -14,33 +14,40 @@
 
 @implementation ProgressGraphViewController
 
+#pragma mark - Initialisation
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view.
+    self.data = [[DataModel alloc] init]; // Initalise the datamodel
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [self drawGraph];
+#pragma mark - When to reload Graph
+
+- (void)viewDidAppear:(BOOL)animated { //
+    [self drawGraph];                  // Catches any time the graph is on screen
+}                                      // and makes sure to reload it for any updates
+                                       //
+- (void)viewDidLayoutSubviews {        //
+    [self drawGraph];                  //
+    NSLog(@"layout");                  //
 }
 
-- (void)viewDidLayoutSubviews {
-    [self drawGraph];
-}
+#pragma mark - Draw Graph
 
 -(void)drawGraph{
-    self.data = [[DataModel alloc] init];
+    self.data.subjects = [self.data load]; // Reload the subject dictionary
     
-    self.entrys = self.data.subjects[self.subjectID][@"entrys"];
+    self.entrys = self.data.subjects[self.subjectID][@"entrys"]; // Sets self.entry to the relevant data to simplify code
 
-    self.sortedKeys = [[self.entrys allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+    self.sortedKeys = [[self.entrys allKeys] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {    // Sorts the entrys by date and the iteration
         if (([a length] != [b length]) && ([a substringToIndex:9] == [b substringToIndex:9])) {
             return [[NSNumber numberWithInteger:[a length]] compare:[NSNumber numberWithInteger:[b length]]];
         } else {
             return [a compare:b];
         }}];
     
-    [self drawGraphFromArray:[self dataArray]];
+    [self drawGraphFromArray:[self dataArray]]; // Calls drawgraph method with the array from dataArray method
 }
 
 - (void)drawGraphFromArray:(NSArray *)array {
@@ -120,19 +127,22 @@
 }
 
 
-- (UIView *)rectWithColour:(UIColor *)colour posx:(int)posx posy:(int)posy width:(int)width height:(int)height{
-    UIView *rect = [[UIView alloc] initWithFrame:CGRectMake(posx, posy, width, height)];
+- (UIView *)rectWithColour:(UIColor *)colour posx:(int)posx posy:(int)posy width:(int)width height:(int)height{ // Idea was gathered from a few StackOverflow threads, mainly;
+    UIView *rect = [[UIView alloc] initWithFrame:CGRectMake(posx, posy, width, height)];            // https://stackoverflow.com/questions/14785188/drawing-rectangles-in-ios
     rect.backgroundColor = colour;
-    rect.layer.masksToBounds = YES;
-    return rect;
+    rect.layer.masksToBounds = YES;                 // Creates a view with the dimensions and position of the given parameters, sets the colour and tells coregraphics to limit
+    return rect;                                    // the view to its bounds, then returns the view
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Future Use
 
 /*
+
+ - (void)didReceiveMemoryWarning {
+ [super didReceiveMemoryWarning];
+ // Dispose of any resources that can be recreated.
+ }
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation

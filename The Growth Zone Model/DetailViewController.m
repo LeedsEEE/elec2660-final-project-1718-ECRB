@@ -83,19 +83,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
     if ([[segue identifier] isEqualToString:@"showNewEntry"]) { // If the segue is creating a new entry
         
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModePrimaryHidden; //When you select an entry the master view is hidden
         
         self.entryViewController = [segue destinationViewController]; // Sets the self.entryviewcontroller to be the viewcontroller that is being segued to
-        
-        self.entryViewController.subjectID = self.subjectID; // Sets the correct subjectID for the new view controller
+        self.entryViewController.subjectID = self.subjectID;          // Sets the correct subjectID for the new view controller
         
     } else if ([[segue identifier] isEqualToString:@"embed"]) { // If the segue is embedding the entry table
         
         self.entryTableViewController = [segue destinationViewController]; // Sets self.entryTableViewController to be the embbedded viewcontroller
-        
-        self.entryTableViewController.subjectID = self.subjectID; // Sets the correct subjectID for the table
+        self.entryTableViewController.subjectID = self.subjectID;          // Sets the correct subjectID for the table
         
     }
 }
