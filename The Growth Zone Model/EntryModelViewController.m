@@ -33,6 +33,7 @@
         self.entry[@"anxietyRadius"] = [[NSNumber alloc] initWithFloat:0.4];
         self.entry[@"growthRadius"] = [[NSNumber alloc] initWithFloat:0.3];
         self.entry[@"comfortRadius"] = [[NSNumber alloc] initWithFloat:0.2];
+        
     }
     
     [self updateCircles];
@@ -57,17 +58,20 @@
     self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:growthArea];
     self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:comfortArea];
     
+    NSLog(@"%@model",self.entry);
+    
     self.entryViewController.entry = self.entry;
     [self.entryViewController updateLabels_comfort:comfortArea growth:growthArea anxiety:anxietyArea];
 }
 
 - (IBAction)pan:(id)sender {
-    UIPanGestureRecognizer *moveCircles = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveCircle:)];
+    UIPanGestureRecognizer *moveCircles = [[UIPanGestureRecognizer alloc] // Creates the gesture recogniser that calls the method moveCircle
+    initWithTarget:self action:@selector(moveCircle:)];                   // when a gesture is recognised
     
-    moveCircles.minimumNumberOfTouches = 1;
-    moveCircles.maximumNumberOfTouches = 1;
+    moveCircles.minimumNumberOfTouches = 1; // Sets the minimum amount of gestures to recognise a pan to 1
+    moveCircles.maximumNumberOfTouches = 1; // Sets the max to 1, hence it will only register single touch
     
-    [self.view addGestureRecognizer:moveCircles];
+    [self.view addGestureRecognizer:moveCircles]; // Adds the gesture recogniser, moveCircles, to the self.view
 }
 
 - (void)moveCircle:(UIPanGestureRecognizer *)panning
@@ -93,13 +97,10 @@
         } else {
             if ((anxietyDiff < growthDiff) && (anxietyDiff < comfortDiff)){
                 self.selected = @"anxiety";
-                NSLog(@"anxiety");
             } else if ((growthDiff < anxietyDiff) && (growthDiff < comfortDiff)){
                 self.selected = @"growth";
-                NSLog(@"growth");
             } else {
                 self.selected = @"comfort";
-                NSLog(@"comfort");
             }
         }
         [self updateCircles];
@@ -162,15 +163,5 @@
     circle.layer.borderWidth = border;
     return circle;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

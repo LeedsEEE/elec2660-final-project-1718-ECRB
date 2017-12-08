@@ -32,7 +32,6 @@
     (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController]; // Sets the detailViewController property of the master view
                                                                                                        // to the view controller at the top of the stack in the last object
                                                                                                        // in the array of viewcontroller managed by the splitviewcontroller
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

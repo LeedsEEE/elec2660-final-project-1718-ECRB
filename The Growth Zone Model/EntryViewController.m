@@ -36,6 +36,10 @@
         
         self.title = @"New Entry";
         
+        self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:27];
+        self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:18];
+        self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:19];
+        
     }
     
     // UI CONFIGURATION
@@ -85,6 +89,8 @@
         }
         self.entryID = tempID;
     }
+    
+    NSLog(@"%@ entryview",self.entry);
 
     self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
     [self.data save:self.data.subjects];
