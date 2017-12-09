@@ -10,6 +10,8 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+#pragma mark - UIObjects
+
 @property (strong, nonatomic) UIWindow *window;
 
 @end

@@ -11,12 +11,19 @@
 
 @interface DataModel : NSObject
 
+#pragma mark - Classes
+
+@property (strong, nonatomic) Date *date;
+
+#pragma mark - Objects
+
 @property (strong, nonatomic) NSMutableDictionary *subjects;
 @property (strong, nonatomic) NSMutableDictionary *subjectTemplate;
 @property (strong, nonatomic) NSMutableDictionary *entryTemplate;
-@property (strong, nonatomic) Date *date;
 
 @property (strong, nonatomic) NSString *filePath;
+
+#pragma mark - Methods
 
 - (void)save:(NSMutableDictionary *)dict;
 - (NSMutableDictionary *)load;

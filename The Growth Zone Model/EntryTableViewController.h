@@ -14,11 +14,15 @@
 
 @interface EntryTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSString *subjectID;
-@property (strong, nonatomic) NSMutableDictionary *subject;
-@property (strong, nonatomic) NSArray *sortedKeys;
+#pragma mark - Classes
+
 @property (strong, nonatomic) DataModel *data;
 @property (strong, nonatomic) Date *date;
 
+#pragma mark - Objects
+
+@property (strong, nonatomic) NSString *subjectID;
+@property (strong, nonatomic) NSMutableDictionary *subject;
+@property (strong, nonatomic) NSArray *sortedKeys;
 
 @end

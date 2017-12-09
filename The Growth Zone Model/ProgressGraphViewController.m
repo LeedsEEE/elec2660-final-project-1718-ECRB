@@ -33,7 +33,6 @@
                                        //
 - (void)viewDidLayoutSubviews {        //
     [self drawGraph];                  //
-    NSLog(@"layout");                  //
 }
 
 #pragma mark - Draw Graph

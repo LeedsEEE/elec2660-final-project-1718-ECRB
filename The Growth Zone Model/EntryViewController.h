@@ -15,8 +15,18 @@
 
 @interface EntryViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *BTSave;
+#pragma mark - View Controllers
 
+@property (strong, nonatomic) EntryModelViewController *entryModelViewController;
+
+#pragma mark - Classes
+
+@property (strong, nonatomic) Date *date;
+@property (strong, nonatomic) DataModel *data;
+
+#pragma mark - UIObjects
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *BTSave;
 
 @property (weak, nonatomic) IBOutlet UIStackView *stackView;
 
@@ -43,16 +53,18 @@
 @property (weak, nonatomic) IBOutlet UIStackView *SVNote;
 @property (weak, nonatomic) IBOutlet UITextView *TVNote;
 
-@property (strong, nonatomic) NSMutableDictionary *entry;
+#pragma mark - Objects
 
-@property (strong, nonatomic) Date *date;
-@property (strong, nonatomic) DataModel *data;
+@property (strong, nonatomic) NSMutableDictionary *entry;
 
 @property (strong, nonatomic) NSString *subjectID;
 @property (strong, nonatomic) NSString *entryID;
 
-@property (strong, nonatomic) EntryModelViewController *entryModelViewController;
+#pragma mark - Values
+
 @property int frameWidth;
+
+#pragma mark - Methods
 
 - (void)updateLabels_comfort:(int)comfort growth:(int)growth anxiety:(int)anxiety;
 

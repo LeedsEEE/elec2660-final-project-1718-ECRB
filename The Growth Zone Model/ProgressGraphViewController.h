@@ -11,14 +11,19 @@
 
 @interface ProgressGraphViewController : UIViewController
 
-@property (strong, nonatomic) NSString *subjectID;
-@property (strong, nonatomic) NSArray *graphArray;
+#pragma mark - Classes
+
+@property (strong, nonatomic) DataModel *data;
+
+#pragma mark - Objects
 
 @property (strong, nonatomic) NSMutableDictionary *entrys;
 
 @property (strong, nonatomic) NSArray *sortedKeys;
+@property (strong, nonatomic) NSArray *graphArray;
+@property (strong, nonatomic) NSString *subjectID;
 
-@property (strong, nonatomic) DataModel *data;
+#pragma mark - Values
 
 @property int border;
 

@@ -14,22 +14,31 @@
 
 @interface EntryModelViewController : UIViewController
 
+#pragma mark - ViewControllers
+
 @property (strong, nonatomic) EntryViewController *entryViewController;
+
+#pragma mark - Classes
+
+@property (strong, nonatomic) DataModel *data;
+
+#pragma mark - UIObjects
 
 @property (strong, nonatomic) IBOutlet UIPanGestureRecognizer *pan;
 
+@property (strong, nonatomic) IBOutlet UIView *frame;
+
+#pragma mark - Objects
+
 @property (strong, nonatomic) NSString *subjectID;
 @property (strong, nonatomic) NSString *entryID;
+@property (strong, nonatomic) NSString *selected;
 
 @property (strong, nonatomic) NSMutableDictionary *entry;
 
 @property (strong, nonatomic) NSArray *modelArray;
 
-@property (strong, nonatomic) IBOutlet UIView *frame;
-
-@property (strong, nonatomic) DataModel *data;
-
-@property (strong, nonatomic) NSString *selected;
+#pragma mark - Values
 
 @property int anxietyArea;
 @property int growthArea;

@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
 
-
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
+
+#pragma mark - ViewControllers
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 @property (strong, nonatomic) DataModel *data;

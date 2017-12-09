@@ -10,6 +10,8 @@
 
 @interface Date : NSObject
 
+#pragma mark - Objects
+
 @property (strong,nonatomic) NSDateFormatter *dateFormatter;
 
 @end
