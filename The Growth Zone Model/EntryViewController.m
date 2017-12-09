@@ -36,9 +36,9 @@
         
         self.title = @"New Entry";
         
-        self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:27];
-        self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:18];
-        self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:19];
+        self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:27];  // Sets the starting values for the area labels
+        self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:18];   // these are used if no values can be found
+        self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:19];  //
         
     }
     
@@ -63,38 +63,32 @@
 
 - (IBAction)saveAction:(id)sender {
     
-    self.entry[@"note"] = self.TVNote.text;
-    
-    //self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.comfortArea];
-    //self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.growthArea];
-    //self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:self.entryModelViewController.anxietyArea];
+    self.entry[@"note"] = self.TVNote.text; // Gets the text within the note
     
     if(!self.entryID){
         
-        NSDate *tempDate = [NSDate date];
+        NSDate *tempDate = [NSDate date]; // Finds the current Date
         
-        NSString *dateString = [self.date.dateFormatter stringFromDate:tempDate];
+        NSString *dateString = [self.date.dateFormatter stringFromDate:tempDate]; // Takes the date and converts it to a string
         
-        self.entry[@"date"] = dateString;
+        self.entry[@"date"] = dateString; // Assigns the dateString to the entry
         
-        int suffix = 1;
+        int suffix = 1; // Initialised the iteration counter
         
-        NSArray *getkeys = [self.data.subjects[self.subjectID][@"entrys"] allKeys];
-        NSString *tempID = [NSString stringWithFormat:@"%@",dateString];
+        NSArray *getkeys = [self.data.subjects[self.subjectID][@"entrys"] allKeys]; // Gets an array of all the entry keys
+        NSString *tempID = [NSString stringWithFormat:@"%@",dateString];            // Creates a temporary entry key to test
         
-        while([getkeys containsObject:tempID])
+        while([getkeys containsObject:tempID]) // Checks if the entry key is already in use, if it is then incrememnt the suffix
         {
             tempID = [NSString stringWithFormat:@"%@_%d",dateString,suffix];
             suffix++;
         }
-        self.entryID = tempID;
+        self.entryID = tempID; // Set the entryKey to the temp key
     }
-    
-    NSLog(@"%@ entryview",self.entry);
 
-    self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry;
-    [self.data save:self.data.subjects];
-    [[self navigationController] popViewControllerAnimated:YES];
+    self.data.subjects[self.subjectID][@"entrys"][self.entryID] = self.entry; // Add the entry to the rest of the data
+    [self.data save:self.data.subjects];                                      // Saves the new data
+    [[self navigationController] popViewControllerAnimated:YES];              // Go back to the subject view
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -105,22 +99,21 @@
         
         EntryModelViewController *entryModelViewController = [segue destinationViewController];
         
-        self.entryModelViewController = entryModelViewController;
+        self.entryModelViewController = entryModelViewController;      //
+                                                                       // Sets the property of entryModelViewController to be the viewcontroller
+        entryModelViewController.subjectID = self.subjectID;           // that is being segued too
+        entryModelViewController.entryID = self.entryID;               // sets the correct subject and entry key
         
-        entryModelViewController.width = self.frame.bounds.size.width;
+        entryModelViewController.entryViewController = self;           // makes sure the modelviewcontroller has its parent as a property to pass data
         
-        entryModelViewController.subjectID = self.subjectID;
-        entryModelViewController.entryID = self.entryID;
-        
-        entryModelViewController.entryViewController = self;
-        
-        float tempWidth = self.view.bounds.size.width - 310;
-        float tempHeight = self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height - UIApplication.sharedApplication.statusBarFrame.size.height - 50;
+        float tempWidth = self.view.bounds.size.width - 310;                                                        // Finds the size of the modelviewcontroller
+        float tempHeight = self.view.bounds.size.height - self.navigationController.navigationBar.frame.size.height // using the set constraints and sizes of
+        - UIApplication.sharedApplication.statusBarFrame.size.height - 50;                                          // views and bars
         
         if (tempWidth < tempHeight){
-            entryModelViewController.width = tempWidth;
-        } else {
-            entryModelViewController.width = tempHeight;
+            entryModelViewController.width = tempWidth;  // The view will be set to the largest square possible, so only
+        } else {                                         // The smallest value from the possible width and height is needed
+            entryModelViewController.width = tempHeight; //
         }
         
     }
