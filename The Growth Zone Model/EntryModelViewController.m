@@ -72,11 +72,11 @@
             float growthDiff = fabs([self.entry[@"growthRadius"] floatValue] - stardRad);   // circle
             float comfortDiff = fabs([self.entry[@"comfortRadius"] floatValue] - stardRad); //
             
-            if ((anxietyDiff < growthDiff) && (anxietyDiff < comfortDiff)){         //
-                self.selected = @"anxiety";
+            if ((anxietyDiff < growthDiff) && (anxietyDiff < comfortDiff)){         // Finds which circle is closest to the start point of the gesture
+                self.selected = @"anxiety";                                         //
             } else if ((growthDiff < anxietyDiff) && (growthDiff < comfortDiff)){   //
                 self.selected = @"growth";                                          //
-            } else {
+            } else {                                                                //
                 self.selected = @"comfort";                                         //
             }
         }
@@ -89,31 +89,35 @@
 
 - (void)updateCircles {
     
-    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)]; // Remove all past circles
     
-    [self.view addSubview:[self circleWithColor:[UIColor whiteColor] radius:0.5 * self.width - 4 posx:self.width/2 posy:self.width/2 border:2.0]];
+    [self.view addSubview:[self circleWithColor:[UIColor whiteColor] radius:0.5 * self.width - 4 posx:self.width/2 posy:self.width/2 border:2.0]]; // Create the border circle
     
-    [self.view addSubview:[self circleWithColor:[UIColor redColor] radius:[self.entry[@"anxietyRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
-    [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:[self.entry[@"growthRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
-    [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:[self.entry[@"comfortRadius"] floatValue] * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];
+    [self.view addSubview:[self circleWithColor:[UIColor redColor] radius:[self.entry[@"anxietyRadius"] floatValue]   // Creates each of the circles
+                           * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];                  //
+    [self.view addSubview:[self circleWithColor:[UIColor yellowColor] radius:[self.entry[@"growthRadius"] floatValue] //
+                           * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];                  //
+    [self.view addSubview:[self circleWithColor:[UIColor greenColor] radius:[self.entry[@"comfortRadius"] floatValue] //
+                           * self.radiusMultiplier posx:self.width/2 posy:self.width/2 border:0.0]];                  //
     
-    int comfortArea = round(pow(([self.entry[@"comfortRadius"] floatValue] + self.tolerance * 2) * 2,2) * 100);
-    int growthArea = round(pow(([self.entry[@"growthRadius"] floatValue] + self.tolerance) * 2,2) * 100) - comfortArea;
-    int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue] * 2,2) * 100) - growthArea - comfortArea;
+    int comfortArea = round(pow(([self.entry[@"comfortRadius"] floatValue] + self.tolerance * 2) * 2,2) * 100);         // Calculate the relevant area
+    int growthArea = round(pow(([self.entry[@"growthRadius"] floatValue] + self.tolerance) * 2,2) * 100) - comfortArea; //
+    int anxietyArea = round(pow([self.entry[@"anxietyRadius"] floatValue] * 2,2) * 100) - growthArea - comfortArea;     //
     
-    self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:anxietyArea];
-    self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:growthArea];
-    self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:comfortArea];
+    self.entry[@"anxietyArea"] = [[NSNumber alloc] initWithInt:anxietyArea]; // Assign these areas to the self.entry
+    self.entry[@"growthArea"] = [[NSNumber alloc] initWithInt:growthArea];   //
+    self.entry[@"comfortArea"] = [[NSNumber alloc] initWithInt:comfortArea]; //
     
-    NSLog(@"%@model",self.entry);
-    
-    self.entryViewController.entry = self.entry;
-    [self.entryViewController updateLabels_comfort:comfortArea growth:growthArea anxiety:anxietyArea];
+    self.entryViewController.entry = self.entry; // Assign the entry to the entryViewController entry
+    [self.entryViewController updateLabels_comfort:comfortArea growth:growthArea anxiety:anxietyArea]; // Update the labels on the entryViewController
 }
 
 
-- (float)radiusCheckForCircle:(NSString *)circle withRadius:(float)radius {
-    
+- (float)radiusCheckForCircle:(NSString *)circle withRadius:(float)radius { // This function checks if the desired radius conflicts with any other circles or limits
+                                                                            // if it conflicts with any circles it then attempts to move the conflicting circle to the
+                                                                            // edge of the tolerance, by calling itself. This will recursively check for any other circles or limits
+                                                                            // If the circle conflicts with a limit, it will return the peak value of the circle, which is used
+                                                                            // to set the circle as well as any other circles pushing it
     float tempRadius;
     
     if ([circle  isEqual: @"anxiety"]){
