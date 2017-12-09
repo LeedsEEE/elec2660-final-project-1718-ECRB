@@ -46,11 +46,11 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { //Returns the sections in the entry table
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { // Checks if there is a subject selected, if there is return the amount of entries
     if (self.subject) {
         return [self.data.subjects[self.subjectID][@"entrys"] allKeys].count;
     } else {
@@ -59,7 +59,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EntryCell" forIndexPath:indexPath]; // Returns the entryKey at the index of the current cell
     
     NSString *entryID = [self.sortedKeys objectAtIndex:indexPath.row];
     
